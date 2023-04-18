@@ -1,0 +1,221 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8607,        213]
+NotebookOptionsPosition[      7894,        193]
+NotebookOutlinePosition[      8334,        210]
+CellTagsIndexPosition[      8291,        207]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"output", "=", "\"\<\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"output2", " ", "=", " ", "\"\<\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Button", "[", 
+   RowBox[{"\"\<Start Randomize\>\"", ",", 
+    RowBox[{
+     RowBox[{"p1", "=", 
+      RowBox[{"RandomInteger", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "52"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"ArrayCheck", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"p1", ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"p2", "=", 
+      RowBox[{"RandomInteger", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "52"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"ArrayCheck", ",", "p2"}], "]"}], ",", 
+       RowBox[{"p2", "=", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "52"}], "}"}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"b1", "=", 
+      RowBox[{"RandomInteger", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "52"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"ArrayCheck", ",", "b1"}], "]"}], ",", 
+       RowBox[{"b1", "=", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "52"}], "}"}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"b2", "=", 
+      RowBox[{"RandomInteger", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "52"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"ArrayCheck", ",", "b2"}], "]"}], ",", 
+       RowBox[{"b2", "=", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "52"}], "}"}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"b3", "=", 
+      RowBox[{"RandomInteger", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "52"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"ArrayCheck", ",", "b3"}], "]"}], ",", 
+       RowBox[{"b3", "=", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "52"}], "}"}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"output", "=", 
+      RowBox[{"Row", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "ResourceFunction", "[", "\"\<PlayingCardGraphic\>\"", "]"}], "[", 
+           "b1", "]"}], ",", 
+          RowBox[{
+           RowBox[{
+           "ResourceFunction", "[", "\"\<PlayingCardGraphic\>\"", "]"}], "[", 
+           "b2", "]"}], ",", 
+          RowBox[{
+           RowBox[{
+           "ResourceFunction", "[", "\"\<PlayingCardGraphic\>\"", "]"}], "[", 
+           "b3", "]"}], ",", 
+          RowBox[{
+           RowBox[{
+           "ResourceFunction", "[", "\"\<PlayingCardGraphic\>\"", "]"}], "[", 
+           "0", "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{
+           "ResourceFunction", "[", "\"\<PlayingCardGraphic\>\"", "]"}], "[", 
+           "0", "]"}]}], "}"}], ",", 
+        RowBox[{"Spacer", "[", "10", "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"output2", "=", 
+      RowBox[{"Rasterize", "@", 
+       RowBox[{
+        RowBox[{"ResourceFunction", "[", "\"\<PlayingCardGraphic\>\"", "]"}], 
+        "[", 
+        RowBox[{"{", 
+         RowBox[{"p1", ",", "p2"}], "}"}], "]"}]}]}], ";"}]}], "]"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Dynamic", "[", "output", "]"}], "\n", 
+ RowBox[{"Dynamic", "[", "output2", "]"}]}], "Input",
+ CellChangeTimes->{{3.8908078758119345`*^9, 3.8908079264207363`*^9}, {
+   3.890808076256047*^9, 3.89080818384396*^9}, {3.890808245127262*^9, 
+   3.89080826351754*^9}, {3.8908082955308056`*^9, 3.8908083261871386`*^9}, 
+   3.8908084378072257`*^9, {3.890808518062091*^9, 3.8908086029488525`*^9}, {
+   3.8908087265264764`*^9, 3.890808727860975*^9}, {3.89080917126766*^9, 
+   3.8908092054733977`*^9}, {3.8908092564901047`*^9, 
+   3.8908092568944435`*^9}, {3.8908093472080135`*^9, 
+   3.8908093507518473`*^9}, {3.8908095342180276`*^9, 
+   3.8908095510918894`*^9}, {3.8908096151798654`*^9, 
+   3.8908096612856402`*^9}, {3.890809835197698*^9, 3.89081002347324*^9}, {
+   3.890810154293735*^9, 3.8908101554960337`*^9}, 3.8908103297718678`*^9, {
+   3.8908103829939594`*^9, 3.8908103851350927`*^9}, 3.890810496612796*^9, 
+   3.890811797854169*^9, {3.89081183573046*^9, 3.890811840148847*^9}, {
+   3.890813491760131*^9, 3.890813493169367*^9}, {3.89081353087037*^9, 
+   3.890813530969804*^9}, {3.890813739260394*^9, 
+   3.8908137482403016`*^9}},ExpressionUUID->"1752784a-557e-450a-8cf4-\
+83c9a1c5b684"],
+
+Cell[BoxData[
+ ButtonBox["\<\"Start Randomize\"\>",
+  Appearance->Automatic,
+  ButtonFunction:>($CellContext`p1 = 
+    RandomInteger[{1, 52}]; $CellContext`ArrayCheck = 
+    Table[$CellContext`p1, {1}]; $CellContext`p2 = RandomInteger[{0, 52}]; 
+   While[
+     MemberQ[$CellContext`ArrayCheck, $CellContext`p2], $CellContext`p2 = 
+     RandomInteger[{0, 52}]]; $CellContext`b1 = RandomInteger[{0, 52}]; While[
+     MemberQ[$CellContext`ArrayCheck, $CellContext`b1], $CellContext`b1 = 
+     RandomInteger[{0, 52}]]; $CellContext`b2 = RandomInteger[{0, 52}]; While[
+     MemberQ[$CellContext`ArrayCheck, $CellContext`b2], $CellContext`b2 = 
+     RandomInteger[{0, 52}]]; $CellContext`b3 = RandomInteger[{0, 52}]; While[
+     MemberQ[$CellContext`ArrayCheck, $CellContext`b3], $CellContext`b3 = 
+     RandomInteger[{0, 52}]]; $CellContext`output = Row[{
+       ResourceFunction["PlayingCardGraphic"][$CellContext`b1], 
+       ResourceFunction["PlayingCardGraphic"][$CellContext`b2], 
+       ResourceFunction["PlayingCardGraphic"][$CellContext`b3], 
+       ResourceFunction["PlayingCardGraphic"][0], 
+       ResourceFunction["PlayingCardGraphic"][0]}, 
+      Spacer[10]]; $CellContext`output2 = Rasterize[
+      ResourceFunction[
+      "PlayingCardGraphic"][{$CellContext`p1, $CellContext`p2}]]; Null),
+  Evaluator->Automatic,
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{
+  3.8908110416276093`*^9, {3.890811799139386*^9, 3.890811804629899*^9}, 
+   3.8908118411212044`*^9, 3.890813494584571*^9, 3.8908135358690023`*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"8b3b1af5-3587-43c6-aad5-adfc7940874a"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[$CellContext`output, StandardForm],
+  ImageSizeCache->{430.3616224023794, {52., 56.}}]], "Output",
+ CellChangeTimes->{
+  3.8908110416276093`*^9, {3.890811799139386*^9, 3.890811804629899*^9}, 
+   3.8908118411212044`*^9, 3.890813494584571*^9, 3.890813535872031*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"4bee54a6-881c-4f8a-b066-96694e5b8939"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[$CellContext`output2, StandardForm],
+  ImageSizeCache->{259.2, {127., 131.}}]], "Output",
+ CellChangeTimes->{
+  3.8908110416276093`*^9, {3.890811799139386*^9, 3.890811804629899*^9}, 
+   3.8908118411212044`*^9, 3.890813494584571*^9, 3.890813535874015*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"afa2344c-aef5-44e8-a94e-ff55ae31d635"]
+}, Open  ]]
+},
+WindowSize->{1152., 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"822ae1bf-516d-4519-ab7c-951c529990ff"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4942, 122, 371, "Input",ExpressionUUID->"1752784a-557e-450a-8cf4-83c9a1c5b684"],
+Cell[5525, 146, 1604, 28, 41, "Output",ExpressionUUID->"8b3b1af5-3587-43c6-aad5-adfc7940874a"],
+Cell[7132, 176, 376, 6, 127, "Output",ExpressionUUID->"4bee54a6-881c-4f8a-b066-96694e5b8939"],
+Cell[7511, 184, 367, 6, 275, "Output",ExpressionUUID->"afa2344c-aef5-44e8-a94e-ff55ae31d635"]
+}, Open  ]]
+}
+]
+*)
+
