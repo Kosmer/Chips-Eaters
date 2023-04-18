@@ -1,0 +1,16 @@
+Feature da implementare:
+- tutorial per giocare a poker, spiegare le combinazioni, introduzione alle probabilità delle varie combinazioni
+- modalità di gioco:
+  - input di probabilità esprimibili con percentuale oppure in frazioni, output in percentuali
+  - diverse difficoltà (cambiano sia la tipologia delle domande presentate all'utente che in termini di precisione richiesta nella risposta)
+  - da 1 a 5 giocatori
+  - indovina la probabilità 
+  - indovina chi ha più probabilità di vincere (con altri giocatori)
+  - probabilità condizionata (carte scoperte)
+  - probabiltà prima e dopo che il banco sveli le sue carte
+  - frazioni devono dare il risultato precisi
+- no:
+  - risposta multipla
+  - range (esplicito), possibiltà di inserirlo implicito (un utente mette un valore magari intero e internamente
+    abbiamo un range per es +-2%)
+  - calcoli complicati e difficili da ricordare
