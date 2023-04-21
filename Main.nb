@@ -10,14 +10,128 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[       824,         34]
-NotebookOptionsPosition[       561,         21]
-NotebookOutlinePosition[       964,         37]
-CellTagsIndexPosition[       921,         34]
+NotebookDataLength[      6407,        160]
+NotebookOptionsPosition[      5176,        135]
+NotebookOutlinePosition[      5579,        151]
+CellTagsIndexPosition[      5536,        148]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Get", "[", "\"\<Project_rand_card.nb\>\"", "]"}], "\n", 
+ RowBox[{"Print", "[", "\"\<Inserisci il numero di giocatori: \>\"", 
+  "]"}], "\n", 
+ RowBox[{"player", "=", 
+  RowBox[{"Input", "[", "]"}]}], "\n", 
+ RowBox[{"Print", "[", "\"\<Inserisci il numero di carte scoperte: \>\"", 
+  "]"}], "\n", 
+ RowBox[{
+  RowBox[{"carteScoperte", "=", 
+   RowBox[{"Input", "[", "]"}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"carteGiocatore", ",", " ", "carteBanco"}], "}"}], "=", 
+  RowBox[{"randomCards", "[", "carteScoperte", "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+  "print", "[", 
+   "\"\<qual'\[EGrave] la probabilit\[AGrave] di fare coppia per il giocatore \
+1?\>\"", "]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.891062141407446*^9, 3.891062168956238*^9}, {
+  3.891062724359497*^9, 3.891062874790514*^9}, {3.8910629181218853`*^9, 
+  3.8910629685543003`*^9}, {3.8910630149950647`*^9, 3.8910630700160823`*^9}, {
+  3.891063129130541*^9, 3.891063172198455*^9}},
+ CellLabel->
+  "In[126]:=",ExpressionUUID->"5d3693e6-ded3-440d-ad80-c84a01812335"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Get", "noopen", 
+   "\"Cannot open \\!\\(\\*RowBox[{\\\"\\\\\\\"Project_rand_card.nb\\\\\\\"\\\
+\"}]\\).\"", 2, 126, 24, 19780487949459847630, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.8910628440527353`*^9, 3.8910629215562057`*^9, 3.891062976631982*^9, {
+   3.8910630445544014`*^9, 3.891063072157254*^9}, 3.8910632448256326`*^9},
+ CellLabel->
+  "During evaluation of \
+In[126]:=",ExpressionUUID->"22424dd5-7ea0-44fa-bf55-ddb3355d943b"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{
+  3.891062844077403*^9, 3.891062921577529*^9, 3.891062976660082*^9, {
+   3.891063044575025*^9, 3.891063072182266*^9}, 3.8910632448456535`*^9},
+ CellLabel->
+  "Out[126]=",ExpressionUUID->"828c554f-80b7-45f9-9220-6d11a51547d2"],
+
+Cell[BoxData["\<\"Inserisci il numero di giocatori: \"\>"], "Print",
+ CellChangeTimes->{
+  3.8910628440865946`*^9, 3.8910629215829096`*^9, 3.8910629766679306`*^9, {
+   3.89106304457996*^9, 3.8910630721872663`*^9}, 3.8910632448504534`*^9},
+ CellLabel->
+  "During evaluation of \
+In[126]:=",ExpressionUUID->"089e5f85-ba62-4b06-aafc-73256174ebdd"],
+
+Cell[BoxData["$Canceled"], "Output",
+ CellChangeTimes->{
+  3.891062844077403*^9, 3.891062921577529*^9, 3.891062976660082*^9, {
+   3.891063044575025*^9, 3.891063072182266*^9}, 3.891063248603272*^9},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"e6429a5d-4796-47cf-aeb1-8990366f4c39"],
+
+Cell[BoxData["\<\"Inserisci il numero di carte scoperte: \"\>"], "Print",
+ CellChangeTimes->{
+  3.8910628440865946`*^9, 3.8910629215829096`*^9, 3.8910629766679306`*^9, {
+   3.89106304457996*^9, 3.8910630721872663`*^9}, 3.8910632486104584`*^9},
+ CellLabel->
+  "During evaluation of \
+In[126]:=",ExpressionUUID->"dd0df0d2-fc25-4e4e-9d3f-40b1c81fbe18"],
+
+Cell[BoxData["$Canceled"], "Output",
+ CellChangeTimes->{
+  3.891062844077403*^9, 3.891062921577529*^9, 3.891062976660082*^9, {
+   3.891063044575025*^9, 3.891063072182266*^9}, 3.8910632504811697`*^9},
+ CellLabel->
+  "Out[130]=",ExpressionUUID->"3db62d0b-7103-486d-acad-cbab757c10c0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "shape", 
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"carteGiocatore\\\", \\\",\
+\\\", \\\"carteBanco\\\"}], \\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"randomCards\\\", \\\"[\\\", \\\"$Canceled\\\", \
+\\\"]\\\"}]\\) are not the same shape.\"", 2, 131, 25, 19780487949459847630, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.8910628440527353`*^9, 3.8910629215562057`*^9, 3.891062976631982*^9, {
+   3.8910630445544014`*^9, 3.891063072157254*^9}, 3.8910632504895477`*^9},
+ CellLabel->
+  "During evaluation of \
+In[126]:=",ExpressionUUID->"edf824de-dc79-49dc-a1ec-643b8b3de517"],
+
+Cell[BoxData[
+ RowBox[{"randomCards", "[", "$Canceled", "]"}]], "Output",
+ CellChangeTimes->{
+  3.891062844077403*^9, 3.891062921577529*^9, 3.891062976660082*^9, {
+   3.891063044575025*^9, 3.891063072182266*^9}, 3.8910632505129795`*^9},
+ CellLabel->
+  "Out[131]=",ExpressionUUID->"f15ae839-20cd-4860-b19b-34b193e218b7"],
+
+Cell[BoxData[
+ RowBox[{"print", 
+  "[", "\<\"qual'\[EGrave] la probabilit\[AGrave] di fare coppia per il \
+giocatore 1?\"\>", "]"}]], "Output",
+ CellChangeTimes->{
+  3.891062844077403*^9, 3.891062921577529*^9, 3.891062976660082*^9, {
+   3.891063044575025*^9, 3.891063072182266*^9}, 3.8910632505183554`*^9},
+ CellLabel->
+  "Out[132]=",ExpressionUUID->"aa860110-6bb9-47ac-8b41-faefcab32aea"]
+}, Open  ]]
 },
 WindowSize->{1249., 766.5},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -36,9 +150,19 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1158, 26, 219, "Input",ExpressionUUID->"5d3693e6-ded3-440d-ad80-c84a01812335"],
+Cell[1741, 50, 500, 11, 28, "Message",ExpressionUUID->"22424dd5-7ea0-44fa-bf55-ddb3355d943b"],
+Cell[2244, 63, 280, 5, 32, "Output",ExpressionUUID->"828c554f-80b7-45f9-9220-6d11a51547d2"],
+Cell[2527, 70, 344, 6, 22, "Print",ExpressionUUID->"089e5f85-ba62-4b06-aafc-73256174ebdd"],
+Cell[2874, 78, 280, 5, 32, "Output",ExpressionUUID->"e6429a5d-4796-47cf-aeb1-8990366f4c39"],
+Cell[3157, 85, 349, 6, 22, "Print",ExpressionUUID->"dd0df0d2-fc25-4e4e-9d3f-40b1c81fbe18"],
+Cell[3509, 93, 282, 5, 32, "Output",ExpressionUUID->"3db62d0b-7103-486d-acad-cbab757c10c0"],
+Cell[3794, 100, 652, 14, 28, "Message",ExpressionUUID->"edf824de-dc79-49dc-a1ec-643b8b3de517"],
+Cell[4449, 116, 319, 6, 32, "Output",ExpressionUUID->"f15ae839-20cd-4860-b19b-34b193e218b7"],
+Cell[4771, 124, 389, 8, 32, "Output",ExpressionUUID->"aa860110-6bb9-47ac-8b41-faefcab32aea"]
+}, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
