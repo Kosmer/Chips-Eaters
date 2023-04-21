@@ -1,0 +1,113 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4171,        105]
+NotebookOptionsPosition[      3815,         91]
+NotebookOutlinePosition[      4218,        107]
+CellTagsIndexPosition[      4175,        104]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"calcolaProb", "[", 
+    RowBox[{
+    "carteBanco_Integer", ",", " ", "carteGiocatore_Integer", ",", " ", 
+     "player_Integer", ",", " ", "modalita_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"carta1player", " ", "=", " ", 
+       RowBox[{"carteGiocatore", "[", "1", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"carta2player", " ", "=", " ", 
+       RowBox[{"carteGiocatore", "[", "2", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "<=", "5"}], ",", 
+         RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", "]"}]}], "]"}], "\n", "\[IndentingNewLine]", 
+       RowBox[{"Switch", "[", 
+        RowBox[{"modalita", ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{
+           "1", " ", "calcola", " ", "probabilit\[AGrave]", " ", "coppia", 
+            " ", "di", " ", "una", " ", "carta", " ", "random", " ", 
+            "scoperta"}], ",", " ", 
+           RowBox[{
+           "gli", " ", "altri", " ", "giocatori", " ", "hanno", " ", "carte", 
+            " ", "coperte"}]}], "*)"}], "\[IndentingNewLine]", "1", ",", 
+         RowBox[{"{", "\[IndentingNewLine]", "}"}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{
+           "2", " ", "calcola", " ", "probabilit\[AGrave]", " ", "coppia", 
+            " ", "generale"}], ",", " ", ",", " ", 
+           RowBox[{
+           "gli", " ", "altri", " ", "giocatori", " ", "hanno", " ", "carte", 
+            " ", "coperte"}]}], "*)"}], "\[IndentingNewLine]", "2", ",", 
+         RowBox[{"Print", "[", "\"\<x \[EGrave] 2\>\"", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"3", " ", "calcola", " ", "probabilit\[AGrave]"}], " ", 
+          "*)"}], "\[IndentingNewLine]", "3", ",", 
+         RowBox[{"Print", "[", "\"\<x \[EGrave] 3\>\"", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"1", " ", "calcola", " ", "probabilit\[AGrave]"}], " ", 
+          "*)"}], "\[IndentingNewLine]", "_", ",", 
+         RowBox[{
+         "Print", "[", 
+          "\"\<x non \[EGrave] n\[EAcute] 1, n\[EAcute] 2, n\[EAcute] 3\>\"", 
+          "]"}]}], "]"}]}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.891063567742859*^9, 3.891063673908537*^9}, {
+  3.8910638509317584`*^9, 3.8910638517622447`*^9}, {3.891064417547724*^9, 
+  3.8910644558019986`*^9}, {3.8910648237233834`*^9, 3.8910648762470164`*^9}, {
+  3.8910657593108606`*^9, 3.8910658945213966`*^9}, {3.89106598307689*^9, 
+  3.8910660014659*^9}, {3.891066360527424*^9, 3.891066432828043*^9}, {
+  3.891066664812668*^9, 3.891066664979817*^9}, {3.891066796597643*^9, 
+  3.891066819652398*^9}, {3.891066867911302*^9, 3.891066980523549*^9}, {
+  3.8910670207524614`*^9, 
+  3.891067034965973*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
+1fcde99620f6"]
+},
+WindowSize->{1249., 766.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fdfd43a7-3c0e-4750-8412-d65b4aeb15ef"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3253, 69, 409, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"]
+}
+]
+*)
+
