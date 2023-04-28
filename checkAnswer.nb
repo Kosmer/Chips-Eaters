@@ -1,0 +1,172 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6681,        164]
+NotebookOptionsPosition[      6094,        146]
+NotebookOutlinePosition[      6507,        162]
+CellTagsIndexPosition[      6464,        159]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"checkAnswer", "[", 
+    RowBox[{"userAnswer_", ",", "correctAnswer_", ",", "mode_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"uAns", ",", "cAns", ",", "guessed"}], "}"}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "se", " ", "la", " ", "modalit\[AGrave]", " ", "precede", " ", "le", 
+        " ", "frazioni"}], ",", 
+       RowBox[{"le", " ", "semplifico", " ", "a", " ", "priori"}]}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"mode", "==", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"uAns", "=", 
+          RowBox[{"Simplify", "[", "userAnswer", "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"cAns", "=", 
+          RowBox[{"Simplify", "[", "correctAnswer", "]"}]}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"guessed", "=", "False"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Switch", "[", 
+       RowBox[{"mode", ",", "\[IndentingNewLine]", "1", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"userAnswer", "==", "correctAnswer"}], ",", 
+          RowBox[{"guessed", "=", "True"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "2", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"userAnswer", "<=", 
+            RowBox[{"correctAnswer", "+", "5"}]}], "&&", 
+           RowBox[{"userAnswer", ">=", 
+            RowBox[{"correctAnswer", "-", "5"}]}]}], ",", 
+          RowBox[{"guessed", "=", "True"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "3", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"userAnswer", "<=", 
+            RowBox[{"correctAnswer", "+", "4"}]}], "&&", 
+           RowBox[{"userAnswer", ">=", 
+            RowBox[{"correctAnswer", "-", "4"}]}]}], ",", 
+          RowBox[{"guessed", "=", "True"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "4", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"userAnswer", "<=", 
+            RowBox[{"correctAnswer", "+", "3"}]}], "&&", 
+           RowBox[{"userAnswer", ">=", 
+            RowBox[{"correctAnswer", "-", "3"}]}]}], ",", 
+          RowBox[{"guessed", "=", "True"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "5", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"userAnswer", "<=", 
+            RowBox[{"correctAnswer", "+", "2"}]}], "&&", 
+           RowBox[{"userAnswer", ">=", 
+            RowBox[{"correctAnswer", "-", "2"}]}]}], ",", 
+          RowBox[{"guessed", "=", "True"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "6", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"userAnswer", "<=", 
+            RowBox[{"correctAnswer", "+", "1"}]}], "&&", 
+           RowBox[{"userAnswer", ">=", 
+            RowBox[{"correctAnswer", "-", "1"}]}]}], ",", 
+          RowBox[{"guessed", "=", "True"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "_", ",", 
+        "\"\<Errore, modalit\[AGrave] non esistente\>\""}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "guessed", "]"}], ";"}]}], "\[IndentingNewLine]",
+     "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.891664830799036*^9, 3.891664832845904*^9}, {
+   3.8916648634713936`*^9, 3.891664985971801*^9}, {3.891665068685234*^9, 
+   3.891665133507202*^9}, {3.8916651783727007`*^9, 3.891665209173297*^9}, {
+   3.8916652624021697`*^9, 3.8916653694655647`*^9}, {3.8916655147122455`*^9, 
+   3.891665549476918*^9}, {3.8916655890740566`*^9, 3.891665642165019*^9}, {
+   3.8916658797374916`*^9, 3.8916660189347057`*^9}, {3.891666181268345*^9, 
+   3.891666191265585*^9}, {3.8916662476273084`*^9, 3.891666259971043*^9}, {
+   3.8916664684813805`*^9, 3.891666485763138*^9}, {3.8916667325077534`*^9, 
+   3.8916667873677826`*^9}, 3.891666845703055*^9, {3.8916669711877666`*^9, 
+   3.891666980319131*^9}, {3.8916671446177454`*^9, 3.891667145696026*^9}, {
+   3.89166736634932*^9, 3.891667439812049*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"c6d3d88f-592e-4e72-9946-9036b04259ba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"prova", " ", "=", " ", 
+   RowBox[{"checkAnswer", "[", 
+    RowBox[{
+     RowBox[{"10", "/", "250"}], ",", 
+     RowBox[{"1", "/", "25"}], ",", "10"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", "prova"}], "Input",
+ CellChangeTimes->{{3.891665749363779*^9, 3.8916657720298195`*^9}, 
+   3.891666744025556*^9, {3.89166744965738*^9, 3.891667449954259*^9}, {
+   3.8916675233510666`*^9, 3.8916675358207517`*^9}, 3.8916675878278666`*^9},
+ CellLabel->"In[64]:=",ExpressionUUID->"f6f0c811-cfe8-428f-9dab-bfaa5dc5a158"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.8916657673325377`*^9, 3.8916657727171383`*^9}, 
+   3.891665997674575*^9, 3.8916662318605747`*^9, 3.8916662648226147`*^9, {
+   3.8916664454331727`*^9, 3.8916664898370132`*^9}, {3.8916667416004524`*^9, 
+   3.891666744992563*^9}, 3.8916667921337194`*^9, 3.8916668486091146`*^9, 
+   3.891666984053281*^9, 3.891667196424596*^9, 3.8916673328136983`*^9, {
+   3.8916674440159082`*^9, 3.891667450641556*^9}, 3.8916675374455667`*^9, 
+   3.891667592171439*^9},
+ CellLabel->"Out[65]=",ExpressionUUID->"fd3d6acc-d48b-4e8e-9705-efce9006797d"]
+}, Open  ]]
+},
+WindowSize->{1428., 741.75},
+WindowMargins->{{-62.25, Automatic}, {Automatic, 115.5}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e7d1892b-021f-45b6-873c-51ce45601249"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4364, 98, 390, "Input",ExpressionUUID->"c6d3d88f-592e-4e72-9946-9036b04259ba"],
+Cell[CellGroupData[{
+Cell[4947, 122, 545, 11, 48, "Input",ExpressionUUID->"f6f0c811-cfe8-428f-9dab-bfaa5dc5a158"],
+Cell[5495, 135, 583, 8, 32, "Output",ExpressionUUID->"fd3d6acc-d48b-4e8e-9705-efce9006797d"]
+}, Open  ]]
+}
+]
+*)
+
