@@ -8,7 +8,7 @@ Feature da implementare:
   - indovina chi ha più probabilità di vincere (con altri giocatori)
   - probabilità condizionata (carte scoperte)
   - probabiltà prima e dopo che il banco sveli le sue carte
-  - frazioni devono dare il risultato precisi
+  - frazioni devono dare il risultato preciso
 - no:
   - risposta multipla
   - range (esplicito), possibiltà di inserirlo implicito (un utente mette un valore magari intero e internamente
