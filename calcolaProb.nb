@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23784,        499]
-NotebookOptionsPosition[     22879,        477]
-NotebookOutlinePosition[     23315,        494]
-CellTagsIndexPosition[     23272,        491]
+NotebookDataLength[     27231,        568]
+NotebookOptionsPosition[     26326,        546]
+NotebookOutlinePosition[     26762,        563]
+CellTagsIndexPosition[     26719,        560]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,8 +33,8 @@ Cell[BoxData[
        "carteScoperteTotali", ",", " ", "cartascelta", ",", " ", 
        "carteRimanenti", ",", " ", "contacoppie", ",", " ", "carta1player", 
        ",", "   ", "carta2player", ",", " ", "cartedaestrarre", ",", 
-       "indicecartascelta", ",", " ", "i"}], "}"}], ",", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "indicecartascelta", ",", "carteBancocoperte", ",", " ", "i"}], "}"}], 
+     ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"probabilita", "=", "0"}], ";", "\[IndentingNewLine]", 
       RowBox[{"carteBancoscoperte", "=", 
@@ -50,6 +50,9 @@ Cell[BoxData[
       RowBox[{"carteScoperteTotali", "=", 
        RowBox[{"Join", "[", 
         RowBox[{"carteBancoscoperte", ",", "carteGiocatore"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"carteBancocoperte", " ", "=", " ", 
+       RowBox[{"5", " ", "-", " ", "carteBancoscoperte"}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"(*", 
        RowBox[{
@@ -88,7 +91,7 @@ Cell[BoxData[
            "giusto"}], " ", "*)"}], "\[IndentingNewLine]", 
          RowBox[{"(*", 
           RowBox[{
-          "da", " ", "qui", " ", "in", " ", "poi", " ", "cartascellta", " ", 
+          "da", " ", "qui", " ", "in", " ", "poi", " ", "cartascelta", " ", 
            "non", " ", "ha", " ", "piu", " ", "il", " ", "valore", " ", "da", 
            " ", "1", " ", "a", " ", "cartescoperte", " ", "ma", " ", "ha", 
            " ", "il", " ", "valore", " ", "della", " ", "carta", " ", "da", 
@@ -153,7 +156,7 @@ Cell[BoxData[
          RowBox[{
           RowBox[{
           "2", " ", "calcola", " ", "probabilit\[AGrave]", " ", "di", " ", 
-           "coppia", " ", "di", " ", "una", " ", "carta", " ", "random", " ", 
+           "tris", " ", "di", " ", "una", " ", "carta", " ", "random", " ", 
            "scoperta", " ", "con", " ", "le", " ", "rimanenti", " ", "da", 
            " ", "estrarre"}], ",", 
           RowBox[{
@@ -170,7 +173,82 @@ Cell[BoxData[
            "]"}]}], ";", "\[IndentingNewLine]", 
          RowBox[{"(*", 
           RowBox[{
-          "da", " ", "qui", " ", "in", " ", "poi", " ", "cartascellta", " ", 
+          "da", " ", "qui", " ", "in", " ", "poi", " ", "cartascelta", " ", 
+           "non", " ", "ha", " ", "piu", " ", "il", " ", "valore", " ", "da", 
+           " ", "1", " ", "a", " ", "cartescoperte", " ", "ma", " ", "ha", 
+           " ", "il", " ", "valore", " ", "della", " ", "carta", " ", "da", 
+           " ", "1", " ", "a", " ", "52"}], "*)"}], 
+         RowBox[{"cartascelta", "=", 
+          RowBox[{"carteScoperteTotali", "[", 
+           RowBox[{"[", "indicecartascelta", "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Print", "[", 
+          RowBox[{
+          "\"\<Inserisci la probabilit\[AGrave] che si crei un tris con: \
+\>\"", ",", "cartascelta", ",", " ", 
+           "\"\< estraendo le carte rimanenti, per arrivare a 5, dal \
+mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"contacoppie", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "carteScoperteTotali", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Mod", "[", 
+               RowBox[{"cartascelta", ",", "13"}], "]"}], "==", 
+              RowBox[{"Mod", "[", 
+               RowBox[{
+                RowBox[{"carteScoperteTotali", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", "13"}], "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"contacoppie", "++"}], ";"}]}], "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "controllo", " ", "finale", " ", "nel", " ", "caso", " ", "non", 
+           " ", "sia", " ", "possibile", " ", "fare", " ", "un", " ", "tris", 
+           " ", "o", " ", "sia", " ", "gia", " ", "sul", " ", "banco"}], 
+          "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"contacoppie", "  ", "<", "3"}], ",", 
+           RowBox[{
+            RowBox[{"probabilita", " ", "=", " ", "1"}], ";"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"contacoppie", " ", "+", " ", "carteBancocoperte"}], ">", 
+            "2"}], ",", 
+           RowBox[{
+            RowBox[{"probabilita", " ", "=", " ", "0"}], ";"}]}], "]"}], 
+         ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+          "3", " ", "calcola", " ", "probabilit\[AGrave]", " ", "di", " ", 
+           "coppia", " ", "di", " ", "una", " ", "carta", " ", "random", " ", 
+           "scoperta", " ", "con", " ", "le", " ", "rimanenti", " ", "da", 
+           " ", "estrarre"}], ",", 
+          RowBox[{
+          "gli", " ", "altri", " ", "giocatori", " ", "hanno", " ", "carte", 
+           " ", "coperte"}]}], "*)"}], "\[IndentingNewLine]", "3", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"indicecartascelta", "=", 
+          RowBox[{"Random", "[", 
+           RowBox[{"Integer", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"Length", "[", "carteScoperteTotali", "]"}]}], "}"}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "da", " ", "qui", " ", "in", " ", "poi", " ", "cartascelta", " ", 
            "non", " ", "ha", " ", "piu", " ", "il", " ", "valore", " ", "da", 
            " ", "1", " ", "a", " ", "cartescoperte", " ", "ma", " ", "ha", 
            " ", "il", " ", "valore", " ", "della", " ", "carta", " ", "da", 
@@ -187,7 +265,7 @@ Cell[BoxData[
 mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]", 
          RowBox[{"(*", 
           RowBox[{
-          "verificare", " ", "sse", " ", "ci", " ", "sono", " ", "gia", " ", 
+          "verificare", " ", "se", " ", "ci", " ", "sono", " ", "gia", " ", 
            "coppie", " ", "tra", " ", "banco", " ", "e", " ", "giocatore"}], 
           "*)"}], "\[IndentingNewLine]", 
          RowBox[{"contacoppie", "=", "0"}], ";", "\[IndentingNewLine]", 
@@ -304,20 +382,6 @@ mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]",
            RowBox[{
             RowBox[{"probabilita", " ", "=", " ", "1"}], ";"}]}], "]"}], 
          ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{
-          "3", " ", "calcola", " ", "probabilit\[AGrave]", " ", "coppia", " ",
-            "generale"}], ",", " ", ",", 
-          RowBox[{
-          "gli", " ", "altri", " ", "giocatori", " ", "hanno", " ", "carte", 
-           " ", "coperte"}]}], "*)"}], "\[IndentingNewLine]", "3", ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{
-        "Print", "[", "\"\<modalita ancora da implementare\>\"", "]"}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{"1", " ", "calcola", " ", "probabilit\[AGrave]"}], "*)"}], 
         "\[IndentingNewLine]", "_", ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{
@@ -369,8 +433,11 @@ mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]",
    3.8920180049930935`*^9}, {3.8920180856277885`*^9, 3.892018089452983*^9}, {
    3.892018125727189*^9, 3.892018232991476*^9}, {3.8920182918736987`*^9, 
    3.8920183390603867`*^9}, {3.892018385984138*^9, 3.8920184081606817`*^9}, {
-   3.89201860890245*^9, 
-   3.8920186096574564`*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
+   3.89201860890245*^9, 3.8920186096574564`*^9}, {3.8920186757460127`*^9, 
+   3.892018764125614*^9}, {3.8920188038321385`*^9, 3.8920188591021385`*^9}, {
+   3.892018890765718*^9, 3.8920189115666475`*^9}, 3.8920189811296883`*^9, {
+   3.8920190255264845`*^9, 3.892019052265041*^9}, {3.8920192367793684`*^9, 
+   3.892019379639366*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
 1fcde99620f6"],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
@@ -383,7 +450,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"y", " ", "=", " ", 
    RowBox[{"{", 
-    RowBox[{"1", ",", "2", ",", "5", ",", "0", ",", "0"}], "}"}]}], 
+    RowBox[{"1", ",", "2", ",", "5", ",", "6", ",", "0"}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"z", " ", "=", " ", 
@@ -391,28 +458,29 @@ Cell[BoxData[{
     RowBox[{"3", ",", "4"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"x", " ", "=", 
   RowBox[{"calcolaProb", "[", 
-   RowBox[{"y", ",", " ", "z", ",", "1", ",", " ", "2"}], 
+   RowBox[{"y", ",", " ", "z", ",", "1", ",", " ", "3"}], 
    "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"Print", "[", "x", "]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQAWIQPWu9d9CRf28cH0UIxIJoNV+TWSB6T6DNbBB9Rqo0
+1:eJxTTMoPSmViYGAQBWIQPWu9d9CRf28cH0UIxIJoNV+TWSB6T6DNbBB9Rqo0
 9BiQ/tl3JAxEbzuW9S73/xvHHuGsjyBaa/H6HyD6y2GunyDaQuTrhDwg/SuE
 ZwaINtFqXwaib8fIrATR5Q+iNoNou/Oa20D0sQk7d4Noyc64PSD6+otPh0B0
 kbXxURAdJZh6GkQf6Z10BkSf8Iy6B6IX7FN/BKI5fJ4p5QPppOmiyiBa68pK
 IxDNt+s+mFb7Y+4EouUmmzmDaLa/vzxBtGHPBW8Q/eu4RA6IvvfzcTGItnJl
-6QLRGd9YwbTPkqb5IHoR4/ZFIFpsHdtyEC3KrbMGRAMA2Vm7FQ==
+6QLRGd9YwbTPkqb5IHoR4/ZFIFpsHdtyEC3KrbMGRBdoGZ4Gy9/mOwOiAdUB
+xDk=
   "],
  CellLabel->
-  "In[425]:=",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
+  "In[438]:=",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Inserisci la probabilit\[AGrave] che si crei una coppia con: \
-\"\>", "\[InvisibleSpace]", "5", 
+\"\>", "\[InvisibleSpace]", "3", 
    "\[InvisibleSpace]", "\<\" estraendo le carte rimanenti, per arrivare a 5, \
 dal mazzo\"\>"}],
   SequenceForm[
-  "Inserisci la probabilit\[AGrave] che si crei una coppia con: ", 5, 
+  "Inserisci la probabilit\[AGrave] che si crei una coppia con: ", 3, 
    " estraendo le carte rimanenti, per arrivare a 5, dal mazzo"],
   Editable->False]], "Print",
  CellChangeTimes->{{3.8916717362448206`*^9, 3.891671742195407*^9}, {
@@ -429,13 +497,13 @@ dal mazzo\"\>"}],
    3.8920179522445135`*^9, 3.8920179543101845`*^9}, {3.8920180378616576`*^9, 
    3.892018069960811*^9}, {3.8920182379733667`*^9, 3.8920182587392993`*^9}, {
    3.89201841291007*^9, 3.8920184544772453`*^9}, {3.892018488893524*^9, 
-   3.892018530131556*^9}},
+   3.892018530131556*^9}, {3.8920187788460336`*^9, 3.8920187852954164`*^9}},
  CellLabel->
   "During evaluation of \
-In[425]:=",ExpressionUUID->"1d59c5b7-c878-433c-8b84-e2d7072a5029"],
+In[438]:=",ExpressionUUID->"76e38b86-a581-4ac5-b01b-a14331462363"],
 
 Cell[BoxData[
- FractionBox["135", "1081"]], "Output",
+ FractionBox["3", "46"]], "Output",
  CellChangeTimes->{{3.8920149886035986`*^9, 3.8920149915701833`*^9}, 
    3.8920157672470846`*^9, {3.892016307646598*^9, 3.8920163242042055`*^9}, {
    3.8920164326413813`*^9, 3.8920164645617123`*^9}, {3.8920165006808476`*^9, 
@@ -449,12 +517,13 @@ Cell[BoxData[
    3.892017882229878*^9}, {3.892017952251935*^9, 3.8920179543177757`*^9}, {
    3.8920180378529425`*^9, 3.892018069952874*^9}, {3.892018237983138*^9, 
    3.8920182587452555`*^9}, {3.892018412915125*^9, 3.8920184544861875`*^9}, {
-   3.892018488899256*^9, 3.8920185301377954`*^9}},
+   3.892018488899256*^9, 3.8920185301377954`*^9}, {3.8920187788525505`*^9, 
+   3.89201878530179*^9}},
  CellLabel->
-  "Out[427]=",ExpressionUUID->"a8831c9b-8ef2-42b2-ae9a-c9b933da0760"],
+  "Out[440]=",ExpressionUUID->"ec2495eb-94c3-4c87-8b7b-12dea2061b50"],
 
 Cell[BoxData[
- FractionBox["135", "1081"]], "Print",
+ FractionBox["3", "46"]], "Print",
  CellChangeTimes->{{3.8916717362448206`*^9, 3.891671742195407*^9}, {
    3.892014964390168*^9, 3.8920149915748854`*^9}, 3.892015767252612*^9, {
    3.8920163076529093`*^9, 3.8920163242143507`*^9}, {3.892016432647008*^9, 
@@ -469,10 +538,10 @@ Cell[BoxData[
    3.8920179522445135`*^9, 3.8920179543101845`*^9}, {3.8920180378616576`*^9, 
    3.892018069960811*^9}, {3.8920182379733667`*^9, 3.8920182587392993`*^9}, {
    3.89201841291007*^9, 3.8920184544772453`*^9}, {3.892018488893524*^9, 
-   3.8920185301420965`*^9}},
+   3.892018530131556*^9}, {3.8920187788460336`*^9, 3.892018785307788*^9}},
  CellLabel->
   "During evaluation of \
-In[425]:=",ExpressionUUID->"9947c153-b5ca-47e0-b0ef-f9c76317aa47"]
+In[438]:=",ExpressionUUID->"383ab236-b258-4814-ab7f-b5dbba129b8c"]
 }, Open  ]]
 },
 WindowSize->{1260, 772},
@@ -493,13 +562,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 17112, 353, 1477, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"],
-Cell[17673, 375, 144, 2, 52, "Input",ExpressionUUID->"7871ef7e-b714-4f25-a54f-90ff000e404b"],
+Cell[558, 20, 20407, 420, 1728, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"],
+Cell[20968, 442, 144, 2, 52, "Input",ExpressionUUID->"7871ef7e-b714-4f25-a54f-90ff000e404b"],
 Cell[CellGroupData[{
-Cell[17842, 381, 1005, 24, 115, "Input",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
-Cell[18850, 407, 1608, 27, 24, "Print",ExpressionUUID->"1d59c5b7-c878-433c-8b84-e2d7072a5029"],
-Cell[20461, 436, 1163, 17, 52, "Output",ExpressionUUID->"a8831c9b-8ef2-42b2-ae9a-c9b933da0760"],
-Cell[21627, 455, 1236, 19, 41, "Print",ExpressionUUID->"9947c153-b5ca-47e0-b0ef-f9c76317aa47"]
+Cell[21137, 448, 1018, 25, 115, "Input",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
+Cell[22158, 475, 1658, 27, 24, "Print",ExpressionUUID->"76e38b86-a581-4ac5-b01b-a14331462363"],
+Cell[23819, 504, 1210, 18, 52, "Output",ExpressionUUID->"ec2495eb-94c3-4c87-8b7b-12dea2061b50"],
+Cell[25032, 524, 1278, 19, 41, "Print",ExpressionUUID->"383ab236-b258-4814-ab7f-b5dbba129b8c"]
 }, Open  ]]
 }
 ]
