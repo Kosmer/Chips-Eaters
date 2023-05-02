@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27231,        568]
-NotebookOptionsPosition[     26326,        546]
-NotebookOutlinePosition[     26762,        563]
-CellTagsIndexPosition[     26719,        560]
+NotebookDataLength[     33136,        703]
+NotebookOptionsPosition[     32231,        681]
+NotebookOutlinePosition[     32667,        698]
+CellTagsIndexPosition[     32624,        695]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -206,6 +206,128 @@ mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]",
                  RowBox[{"[", "i", "]"}], "]"}], ",", "13"}], "]"}]}], ",", 
              RowBox[{
               RowBox[{"contacoppie", "++"}], ";"}]}], "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"cr", " ", "=", " ", "carteRimanenti"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Switch", "[", 
+          RowBox[{
+          "cartedaestrarre", ",", "\[IndentingNewLine]", "1", ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"contacoppie", " ", "==", " ", "1"}], ",", " ", 
+              RowBox[{"probabilita", " ", "=", " ", 
+               RowBox[{"2", "/", "cr"}]}]}], "]"}], ";"}], 
+           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", "2", ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"contacoppie", " ", "==", " ", "1"}], ",", " ", 
+              RowBox[{"probabilita", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"2", "/", "cr"}], ")"}], " ", "+", "  ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "2"}], ")"}], " ", "/", "cr"}], ")"}], 
+                  " ", "*", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"2", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "1"}], ")"}]}], ")"}]}], ")"}]}]}]}], 
+             "]"}], ";", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"contacoppie", " ", "==", " ", "0"}], ",", " ", 
+              RowBox[{"probabilita", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"3", "/", "cr"}], ")"}], " ", "+", "  ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", "/", "cr"}], "-", "1"}], ")"}]}]}]}], "]"}], 
+            ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", "3", 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"contacoppie", " ", "==", " ", "1"}], ",", " ", 
+              RowBox[{"probabilita", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"2", "/", "cr"}], ")"}], " ", "+", "  ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "2"}], ")"}], " ", "/", "cr"}], ")"}], 
+                  " ", "*", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"2", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "1"}], ")"}]}], ")"}]}], ")"}], " ", 
+                "+", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "2"}], ")"}], "/", "cr"}], ")"}], "*", 
+                  RowBox[{"(", 
+                   RowBox[{"2", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "1"}], ")"}]}], ")"}]}], ")"}]}]}]}], 
+             "]"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"contacoppie", " ", "==", " ", "0"}], ",", " ", 
+              RowBox[{"probabilita", " ", "=", "  ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"3", "/", "cr"}], ")"}], "*", 
+                  RowBox[{"(", 
+                   RowBox[{"2", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "1"}], ")"}]}], ")"}]}], " ", "+", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"3", "/", "cr"}], ")"}], "*", 
+                   RowBox[{"(", 
+                    RowBox[{"2", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "1"}], ")"}]}], ")"}]}], ")"}], " ", 
+                 "+", " ", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "3"}], ")"}], "/", "cr"}], ")"}], "*", 
+                  " ", 
+                  RowBox[{"(", 
+                   RowBox[{"3", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "1"}], ")"}]}], ")"}], "*", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"2", " ", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"cr", "-", "2"}], ")"}]}], ")"}]}]}], ")"}]}]}], 
+             "]"}], ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+           "_", ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+            "Print", "[", "\"\<ci sono piu di 3 carte da estrarre\>\"", "]"}],
+             ";", " ", 
+            RowBox[{"probabilita", " ", "=", "0"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
          "\[IndentingNewLine]", "\[IndentingNewLine]", 
          RowBox[{"(*", 
           RowBox[{
@@ -227,6 +349,7 @@ mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]",
            RowBox[{
             RowBox[{"probabilita", " ", "=", " ", "0"}], ";"}]}], "]"}], 
          ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{
           RowBox[{
@@ -437,7 +560,15 @@ mazzo\>\""}], " ", "]"}], ";", "\[IndentingNewLine]",
    3.892018764125614*^9}, {3.8920188038321385`*^9, 3.8920188591021385`*^9}, {
    3.892018890765718*^9, 3.8920189115666475`*^9}, 3.8920189811296883`*^9, {
    3.8920190255264845`*^9, 3.892019052265041*^9}, {3.8920192367793684`*^9, 
-   3.892019379639366*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
+   3.8920193893728943`*^9}, {3.8920203028267455`*^9, 
+   3.8920204765041285`*^9}, {3.892020518033945*^9, 3.892020603150672*^9}, {
+   3.8920207661890607`*^9, 3.892020796945812*^9}, {3.8920208316581025`*^9, 
+   3.8920208568953447`*^9}, {3.8920209117855215`*^9, 
+   3.8920211520670843`*^9}, {3.8920212928042526`*^9, 
+   3.8920212963069363`*^9}, {3.8920214023571362`*^9, 
+   3.8920214678241425`*^9}, {3.8920215435234075`*^9, 3.892021570497717*^9}, {
+   3.8920216277410917`*^9, 
+   3.892021706481887*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
 1fcde99620f6"],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
@@ -458,30 +589,29 @@ Cell[BoxData[{
     RowBox[{"3", ",", "4"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"x", " ", "=", 
   RowBox[{"calcolaProb", "[", 
-   RowBox[{"y", ",", " ", "z", ",", "1", ",", " ", "3"}], 
+   RowBox[{"y", ",", " ", "z", ",", "1", ",", " ", "1"}], 
    "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"Print", "[", "x", "]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQBWIQPWu9d9CRf28cH0UIxIJoNV+TWSB6T6DNbBB9Rqo0
+1:eJxTTMoPSmViYGAQA2IQPWu9d9CRf28cH0UIxIJoNV+TWSB6T6DNbBB9Rqo0
 9BiQ/tl3JAxEbzuW9S73/xvHHuGsjyBaa/H6HyD6y2GunyDaQuTrhDwg/SuE
 ZwaINtFqXwaib8fIrATR5Q+iNoNou/Oa20D0sQk7d4Noyc64PSD6+otPh0B0
 kbXxURAdJZh6GkQf6Z10BkSf8Iy6B6IX7FN/BKI5fJ4p5QPppOmiyiBa68pK
 IxDNt+s+mFb7Y+4EouUmmzmDaLa/vzxBtGHPBW8Q/eu4RA6IvvfzcTGItnJl
-6QLRGd9YwbTPkqb5IHoR4/ZFIFpsHdtyEC3KrbMGRBdoGZ4Gy9/mOwOiAdUB
-xDk=
+6QLRGd9YwbTPkqb5IHoR4/ZFIFpsHdtyEC3KrbMGRBdoGZ4Gy9/mOwOiz8xp
+ZywE0g4M3WAaAF/yzDA=
   "],
  CellLabel->
-  "In[438]:=",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
+  "In[460]:=",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Inserisci la probabilit\[AGrave] che si crei una coppia con: \
-\"\>", "\[InvisibleSpace]", "3", 
-   "\[InvisibleSpace]", "\<\" estraendo le carte rimanenti, per arrivare a 5, \
-dal mazzo\"\>"}],
+\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\" estraendo la prossima carta dal mazzo\"\>"}],
   SequenceForm[
-  "Inserisci la probabilit\[AGrave] che si crei una coppia con: ", 3, 
-   " estraendo le carte rimanenti, per arrivare a 5, dal mazzo"],
+  "Inserisci la probabilit\[AGrave] che si crei una coppia con: ", 1, 
+   " estraendo la prossima carta dal mazzo"],
   Editable->False]], "Print",
  CellChangeTimes->{{3.8916717362448206`*^9, 3.891671742195407*^9}, {
    3.892014964390168*^9, 3.8920149915748854`*^9}, 3.892015767252612*^9, {
@@ -497,10 +627,12 @@ dal mazzo\"\>"}],
    3.8920179522445135`*^9, 3.8920179543101845`*^9}, {3.8920180378616576`*^9, 
    3.892018069960811*^9}, {3.8920182379733667`*^9, 3.8920182587392993`*^9}, {
    3.89201841291007*^9, 3.8920184544772453`*^9}, {3.892018488893524*^9, 
-   3.892018530131556*^9}, {3.8920187788460336`*^9, 3.8920187852954164`*^9}},
+   3.892018530131556*^9}, {3.8920187788460336`*^9, 3.8920187852954164`*^9}, {
+   3.8920212613478546`*^9, 3.892021263750886*^9}, {3.892021321336732*^9, 
+   3.8920213271252995`*^9}},
  CellLabel->
   "During evaluation of \
-In[438]:=",ExpressionUUID->"76e38b86-a581-4ac5-b01b-a14331462363"],
+In[460]:=",ExpressionUUID->"bc4ca2e1-ecd7-4793-8abe-d1083a4e4b0a"],
 
 Cell[BoxData[
  FractionBox["3", "46"]], "Output",
@@ -518,9 +650,10 @@ Cell[BoxData[
    3.8920180378529425`*^9, 3.892018069952874*^9}, {3.892018237983138*^9, 
    3.8920182587452555`*^9}, {3.892018412915125*^9, 3.8920184544861875`*^9}, {
    3.892018488899256*^9, 3.8920185301377954`*^9}, {3.8920187788525505`*^9, 
-   3.89201878530179*^9}},
+   3.89201878530179*^9}, {3.892021261353853*^9, 3.892021263758726*^9}, {
+   3.8920213213426905`*^9, 3.892021327132862*^9}},
  CellLabel->
-  "Out[440]=",ExpressionUUID->"ec2495eb-94c3-4c87-8b7b-12dea2061b50"],
+  "Out[462]=",ExpressionUUID->"d9118086-20c4-43c4-856d-c05879c4c722"],
 
 Cell[BoxData[
  FractionBox["3", "46"]], "Print",
@@ -538,10 +671,12 @@ Cell[BoxData[
    3.8920179522445135`*^9, 3.8920179543101845`*^9}, {3.8920180378616576`*^9, 
    3.892018069960811*^9}, {3.8920182379733667`*^9, 3.8920182587392993`*^9}, {
    3.89201841291007*^9, 3.8920184544772453`*^9}, {3.892018488893524*^9, 
-   3.892018530131556*^9}, {3.8920187788460336`*^9, 3.892018785307788*^9}},
+   3.892018530131556*^9}, {3.8920187788460336`*^9, 3.8920187852954164`*^9}, {
+   3.8920212613478546`*^9, 3.892021263750886*^9}, {3.892021321336732*^9, 
+   3.892021327139962*^9}},
  CellLabel->
   "During evaluation of \
-In[438]:=",ExpressionUUID->"383ab236-b258-4814-ab7f-b5dbba129b8c"]
+In[460]:=",ExpressionUUID->"29778338-69f8-4efe-9c54-03d58f541530"]
 }, Open  ]]
 },
 WindowSize->{1260, 772},
@@ -562,13 +697,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 20407, 420, 1728, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"],
-Cell[20968, 442, 144, 2, 52, "Input",ExpressionUUID->"7871ef7e-b714-4f25-a54f-90ff000e404b"],
+Cell[558, 20, 26032, 551, 2106, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"],
+Cell[26593, 573, 144, 2, 52, "Input",ExpressionUUID->"7871ef7e-b714-4f25-a54f-90ff000e404b"],
 Cell[CellGroupData[{
-Cell[21137, 448, 1018, 25, 115, "Input",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
-Cell[22158, 475, 1658, 27, 24, "Print",ExpressionUUID->"76e38b86-a581-4ac5-b01b-a14331462363"],
-Cell[23819, 504, 1210, 18, 52, "Output",ExpressionUUID->"ec2495eb-94c3-4c87-8b7b-12dea2061b50"],
-Cell[25032, 524, 1278, 19, 41, "Print",ExpressionUUID->"383ab236-b258-4814-ab7f-b5dbba129b8c"]
+Cell[26762, 579, 1034, 25, 115, "Input",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
+Cell[27799, 606, 1720, 28, 24, "Print",ExpressionUUID->"bc4ca2e1-ecd7-4793-8abe-d1083a4e4b0a"],
+Cell[29522, 636, 1308, 19, 52, "Output",ExpressionUUID->"d9118086-20c4-43c4-856d-c05879c4c722"],
+Cell[30833, 657, 1382, 21, 41, "Print",ExpressionUUID->"29778338-69f8-4efe-9c54-03d58f541530"]
 }, Open  ]]
 }
 ]
