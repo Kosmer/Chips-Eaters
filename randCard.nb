@@ -1,24 +1,100 @@
-In[49]:= randomCards[nDiscoveredCards_Integer,nPlayers_Integer]:=Module[{banco,mani,p,b,ArrayCheck,nPlayer,nDiscovered},ArrayCheck={};
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2994,         90]
+NotebookOptionsPosition[      2290,         70]
+NotebookOutlinePosition[      2730,         87]
+CellTagsIndexPosition[      2687,         84]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+randomCards[nDiscoveredCards_Integer,nPlayers_Integer]:=Module[{banco,mani,p,\
+b,ArrayCheck,nPlayer,nDiscovered},ArrayCheck={};
 banco=Table[0,{5}];
 mani=Table[0,{nPlayers*2}];
 nDiscovered=1;
 nPlayer=1;
-(*Crea le carte scoperte a seconda di nDiscoveredCards*)While[nDiscovered-1<nDiscoveredCards,banco[[nDiscovered]]=RandomInteger[{1,52}];
-While[MemberQ[ArrayCheck,banco[[nDiscovered]]],banco[[nDiscovered]]=RandomInteger[{1,52}]];
+(*Crea le carte scoperte a seconda di \
+nDiscoveredCards*)While[nDiscovered-1<nDiscoveredCards,banco[[nDiscovered]]=\
+RandomInteger[{1,52}];
+While[MemberQ[ArrayCheck,banco[[nDiscovered]]],banco[[nDiscovered]]=\
+RandomInteger[{1,52}]];
 ArrayCheck=Append[ArrayCheck,banco[[nDiscovered]]];
 nDiscovered+=1;];
-(*Crea le mani dei giocatori a seconda di nPlayers*)While[nPlayer-1<nPlayers*2,mani[[nPlayer]]=RandomInteger[{1,52}];
-While[MemberQ[ArrayCheck,mani[[nPlayer]]],mani[[nPlayer]]=RandomInteger[{1,52}]];
+(*Crea le mani dei giocatori a seconda di \
+nPlayers*)While[nPlayer-1<nPlayers*2,mani[[nPlayer]]=RandomInteger[{1,52}];
+While[MemberQ[ArrayCheck,mani[[nPlayer]]],mani[[nPlayer]]=RandomInteger[{1,52}\
+]];
 ArrayCheck=Append[ArrayCheck,mani[[nPlayer]]];nPlayer+=1;
 mani[[nPlayer]]=RandomInteger[{1,52}];
-While[MemberQ[ArrayCheck,mani[[nPlayer]]],mani[[nPlayer]]=RandomInteger[{1,52}]];
+While[MemberQ[ArrayCheck,mani[[nPlayer]]],mani[[nPlayer]]=RandomInteger[{1,52}\
+]];
 ArrayCheck=Append[ArrayCheck,mani[[nPlayer]]];nPlayer+=1;];
-{banco,mani}]
+{banco,mani}]\
+\>", "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"e66d648c-d174-4320-9a55-d27387f5bec6"],
 
+Cell[CellGroupData[{
 
-
-In[50]:= {b,m}=randomCards[4,2];
+Cell["\<\
+{b,m}=randomCards[4,2];
 b
-m
-Out[51]= {4,18,12,10,0}
-Out[52]= {32,30,50,46}
+m\
+\>", "Input",
+ CellChangeTimes->{3.892015645643482*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"caaaf1b2-300b-4ebb-b3f6-03913a583ade"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"31", ",", "40", ",", "45", ",", "7", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.8920156526399546`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"6d37ae3f-a904-44df-885d-baa77679dfde"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"5", ",", "49", ",", "10", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.8920156526495905`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"576d494a-1d5c-44eb-b964-223ca9e72c20"]
+}, Open  ]]
+},
+WindowSize->{1152., 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"80c8b215-5a10-47ab-b147-efb38cc91823"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1068, 25, 284, "Input",ExpressionUUID->"e66d648c-d174-4320-9a55-d27387f5bec6"],
+Cell[CellGroupData[{
+Cell[1651, 49, 172, 6, 63, "Input",ExpressionUUID->"caaaf1b2-300b-4ebb-b3f6-03913a583ade"],
+Cell[1826, 57, 228, 4, 32, "Output",ExpressionUUID->"6d37ae3f-a904-44df-885d-baa77679dfde"],
+Cell[2057, 63, 217, 4, 32, "Output",ExpressionUUID->"576d494a-1d5c-44eb-b964-223ca9e72c20"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
