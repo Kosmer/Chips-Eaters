@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17301,        388]
-NotebookOptionsPosition[     16497,        367]
-NotebookOutlinePosition[     16933,        384]
-CellTagsIndexPosition[     16890,        381]
+NotebookDataLength[     17889,        399]
+NotebookOptionsPosition[     17085,        378]
+NotebookOutlinePosition[     17521,        395]
+CellTagsIndexPosition[     17478,        392]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -260,10 +260,21 @@ Cell[BoxData[
                   RowBox[{"carteRimanenti", "-", "1"}], ")"}], "*", 
                  RowBox[{"(", 
                   RowBox[{"carteRimanenti", "-", "2"}], ")"}]}], ")"}]}]}]}], 
-            ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", "_", 
-           ",", 
+            ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{
+             "troppo", " ", "complicato", " ", "da", " ", "calcolare", " ", 
+              "a", " ", "mente"}], ",", " ", 
+             RowBox[{
+             "non", " ", "si", " ", "prevede", " ", "un", " ", "caso", " ", 
+              "in", " ", "cui", " ", "ci", " ", "sono", " ", "4", " ", 
+              "carte", " ", "da", " ", "estrarre"}]}], "*)"}], 
+           "\[IndentingNewLine]", "_", ",", 
            RowBox[{
-            RowBox[{"Print", "[", "\"\<errore\>\"", "]"}], ";", " ", 
+            RowBox[{
+            "Print", "[", "\"\<ci sono piu di 3 carte da estrarre\>\"", "]"}],
+             ";", " ", 
             RowBox[{"probabilita", " ", "=", "0"}], ";"}]}], "]"}], ";"}], 
         "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
         RowBox[{"(*", 
@@ -275,16 +286,15 @@ Cell[BoxData[
           "gli", " ", "altri", " ", "giocatori", " ", "hanno", " ", "carte", 
            " ", "coperte"}]}], "*)"}], "\[IndentingNewLine]", "3.0", ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"Print", "[", "\"\<x \[EGrave] 3\>\"", "]"}], ",", 
+        RowBox[{
+        "Print", "[", "\"\<modalita ancora da implementare\>\"", "]"}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{"1", " ", "calcola", " ", "probabilit\[AGrave]"}], "*)"}], 
         "\[IndentingNewLine]", "_", ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{
-         "Print", "[", 
-          "\"\<x non \[EGrave] n\[EAcute] 1, n\[EAcute] 2, n\[EAcute] 3\>\"", 
-          "]"}], ";", 
+         "Print", "[", "\"\<modalita ancora da implementare\>\"", "]"}], ";", 
          RowBox[{"probabilita", " ", "=", "0"}], ";"}]}], 
        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"Return", "[", "probabilita", "]"}], ";"}]}], 
@@ -315,8 +325,8 @@ Cell[BoxData[
    3.891671041157216*^9, 3.891671077179381*^9}, {3.891671115348618*^9, 
    3.8916711560032835`*^9}, {3.891671187277402*^9, 3.8916711913216114`*^9}, 
    3.8916712539719257`*^9, {3.891671309069897*^9, 3.8916713603810897`*^9}, {
-   3.892015728666992*^9, 
-   3.8920157348072977`*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
+   3.892015728666992*^9, 3.8920157348072977`*^9}, {3.8920158032418194`*^9, 
+   3.8920158998403597`*^9}},ExpressionUUID->"e859471e-fc83-4e00-960e-\
 1fcde99620f6"],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
@@ -339,7 +349,7 @@ Cell[BoxData[{
   3.8916681776344175`*^9, 3.8916681858849773`*^9}, {3.891671723659521*^9, 
   3.8916717341424527`*^9}, {3.8920149633367567`*^9, 3.892014987314886*^9}, {
   3.8920150454886675`*^9, 3.89201504833642*^9}},
- CellLabel->"In[8]:=",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
+ CellLabel->"In[15]:=",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
 
 Cell[BoxData[
  RowBox[{"calcolaProb", "[", 
@@ -348,8 +358,9 @@ Cell[BoxData[
     RowBox[{"1", ",", "2", ",", "3", ",", "0", ",", "0"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"1", ",", "6"}], "}"}], ",", "1", ",", "1"}], "]"}]], "Output",
- CellChangeTimes->{{3.8920149886035986`*^9, 3.8920149915701833`*^9}},
- CellLabel->"Out[8]=",ExpressionUUID->"3dc7775f-55c2-470f-82d1-6f94df3284bb"],
+ CellChangeTimes->{{3.8920149886035986`*^9, 3.8920149915701833`*^9}, 
+   3.8920157672470846`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"c9d15f4e-ea34-4fd4-b4a8-e6ab96f59580"],
 
 Cell[BoxData[
  RowBox[{"calcolaProb", "[", 
@@ -359,10 +370,10 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"1", ",", "6"}], "}"}], ",", "1", ",", "1"}], "]"}]], "Print",
  CellChangeTimes->{{3.8916717362448206`*^9, 3.891671742195407*^9}, {
-  3.892014964390168*^9, 3.8920149915748854`*^9}},
+   3.892014964390168*^9, 3.8920149915748854`*^9}, 3.892015767252612*^9},
  CellLabel->
   "During evaluation of \
-In[8]:=",ExpressionUUID->"d29dc161-5daf-4a00-977d-1b2d535b73e6"]
+In[15]:=",ExpressionUUID->"db812799-8190-486d-9607-6d0c70158917"]
 }, Open  ]]
 },
 WindowSize->{1260, 772},
@@ -383,12 +394,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 14180, 299, 1393, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"],
-Cell[14741, 321, 144, 2, 52, "Input",ExpressionUUID->"7871ef7e-b714-4f25-a54f-90ff000e404b"],
+Cell[558, 20, 14714, 309, 1414, "Input",ExpressionUUID->"e859471e-fc83-4e00-960e-1fcde99620f6"],
+Cell[15275, 331, 144, 2, 52, "Input",ExpressionUUID->"7871ef7e-b714-4f25-a54f-90ff000e404b"],
 Cell[CellGroupData[{
-Cell[14910, 327, 723, 14, 73, "Input",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
-Cell[15636, 343, 384, 8, 35, "Output",ExpressionUUID->"3dc7775f-55c2-470f-82d1-6f94df3284bb"],
-Cell[16023, 353, 458, 11, 24, "Print",ExpressionUUID->"d29dc161-5daf-4a00-977d-1b2d535b73e6"]
+Cell[15444, 337, 724, 14, 73, "Input",ExpressionUUID->"300e15eb-fcee-4cf8-a053-4d7c7a91355b"],
+Cell[16171, 353, 413, 9, 35, "Output",ExpressionUUID->"c9d15f4e-ea34-4fd4-b4a8-e6ab96f59580"],
+Cell[16587, 364, 482, 11, 24, "Print",ExpressionUUID->"db812799-8190-486d-9607-6d0c70158917"]
 }, Open  ]]
 }
 ]
