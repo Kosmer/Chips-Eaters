@@ -130,3 +130,6 @@ Begin["Private`"]
 			Return[{probabilita, cartascelta}];
 	]
 End[]
+
+
+
