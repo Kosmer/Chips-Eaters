@@ -15,10 +15,11 @@
 (* :Requirements: *)
 (* :Warning: package Context is not defined *)
 
+BeginPackage["draw`"];
+
 draw::usage = "Disegnamento disegnante"
 
-BeginPackage["draw`"];
-Begin["Private`"]
+Begin["`Private`"]
 
 DrawAll[modalita_]:=Module[{},
 SetDirectory[NotebookDirectory[]];

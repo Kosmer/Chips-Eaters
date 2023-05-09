@@ -15,9 +15,10 @@
 (* :Requirements: *)
 (* :Warning: package Context is not defined *)
 
-calcolaProb::usage = "calcolaProb[x, y, w, z]"
 BeginPackage["calcolaProb`"];
-Begin["Private`"]
+calcolaProb::usage = "calcolaProb[x, y, w, z]"
+
+Begin["`Private`"]
 
 	calcolaProb[carteBanco_,carteGiocatore_,player_Integer,modalita_Integer]:=
 		Module[

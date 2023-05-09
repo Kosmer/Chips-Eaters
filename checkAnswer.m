@@ -15,9 +15,10 @@
 (* :Requirements: *)
 (* :Warning: package Context is not defined *)
 
-checkAnswer::usage = "checkAnswer[x, y, z] ritorna la stringa Giusto! o Sbagliato! se la risposta x fornita dall'utente \[EGrave] uguale alla risposta y corretta, z \[EGrave] la modalit\[AGrave] che cambia il criterio di valutazione della risposta"
 BeginPackage["checkAnswer`"];
-Begin["Private`"]
+checkAnswer::usage = "checkAnswer[x, y, z] ritorna la stringa Giusto! o Sbagliato! se la risposta x fornita dall'utente \[EGrave] uguale alla risposta y corretta, z \[EGrave] la modalit\[AGrave] che cambia il criterio di valutazione della risposta"
+
+Begin["`Private`"]
 
 	checkAnswer[userAnswer_,correctAnswer_,mode_]:=
 		Module[{uAns,cAns,guessed},

@@ -15,9 +15,11 @@
 (* :Requirements: *)
 (* :Warning: package Context is not defined *)
 
-randCards::usage = "randomCards[x, y] ritorna due liste di carte, la prima contiene le carte del banco con x carte scoperte, mentre la seconda contiene 2*y carte che rappresentano le mani da due carte in base al numero di giocatori."
 BeginPackage["randCards`"];
-Begin["Private`"]
+
+randCards::usage = "randomCards[x, y] ritorna due liste di carte, la prima contiene le carte del banco con x carte scoperte, mentre la seconda contiene 2*y carte che rappresentano le mani da due carte in base al numero di giocatori."
+
+Begin["`Private`"]
 
 	randomCards[nDiscoveredCards_Integer,nPlayers_Integer]:=
 		Module[
