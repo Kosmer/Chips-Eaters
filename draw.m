@@ -25,13 +25,7 @@ drawAll[modalita_]:=Module[{},
 SetDirectory[NotebookDirectory[]];
 Get["randCards.m"];
 Get["calcolaProb.m"];
-(*
-player=Input["Inserisci il numero di giocatori: "];
-carteScoperte=Input["Inserisci il numero di carte scoperte: "];
-*)
-(*
-modalita=Input["Inserisci modalit\[AGrave]"];
-*)
+
 Switch[modalita,
 1,player=1;carteScoperte=RandomInteger[{2,4}],
 2,player=1;carteScoperte=3,
@@ -53,7 +47,6 @@ outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGi
 _,
 "Errore"];
 
-
 (*CREO IL DISEGNO DELLE CARTE BANCO*)
 outputbanco=Row[{ResourceFunction["PlayingCardGraphic"][carteBanco[[1]]],ResourceFunction["PlayingCardGraphic"][carteBanco[[2]]],ResourceFunction["PlayingCardGraphic"][carteBanco[[3]]],ResourceFunction["PlayingCardGraphic"][carteBanco[[4]]],ResourceFunction["PlayingCardGraphic"][carteBanco[[5]]]},Spacer[10]];
 outputbanco;
@@ -61,19 +54,6 @@ outputbanco;
 (*CREO IL DISEGNO DELLE CARTE GIOCATORE*)
 outputgiocatore=Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[1]],carteGiocatore[[2]]}];
 outputgiocatore;
-
-
-(*DISEGNO LE CARTE*)
-(*
-If[player>1,Print[outputavversari]];
-Print[outputbanco];
-Print[outputgiocatore];
-*)
-
-
-(*
-Style[Pane[Column[{If[player>1,outputavversari]," ", outputbanco," ",outputgiocatore},Alignment->Center],Alignment->Center,ImageSize->Full],Magnification->1.0]
-*)
 
 (*RICAVO LA PROBABILITA' CORRETTA E LA CARTA RICHIESTA*)
 {correctprob, requestcard} = calcolaProb`calcolaProb[carteBanco, carteGiocatore,player, modalita];
@@ -85,17 +65,6 @@ Switch[effectivecard,
 "11", effectivecard = "J",
 "12", effectivecard = "Q",
 _, "Errore"];
-
-(*
-Switch[modalita,
-1,Print["Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>effectivecard<> " estraendo la prossima carta dal mazzo?"],
-2, Print["Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>effectivecard<> " estraendo le prossime 2 carte dal mazzo?"],
-3, Print["Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>effectivecard<> " estraendo le prossime 2 carte dal mazzo?"],
-_, "Errore"]
-*)
-
-
-
 
 Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob}];
 ]
