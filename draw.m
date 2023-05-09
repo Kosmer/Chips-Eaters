@@ -17,11 +17,11 @@
 
 BeginPackage["draw`"];
 
-draw::usage = "Disegnamento disegnante"
+drawAll::usage = "Disegnamento disegnante"
 
 Begin["`Private`"]
 
-DrawAll[modalita_]:=Module[{},
+drawAll[modalita_]:=Module[{},
 SetDirectory[NotebookDirectory[]];
 Get["randCards.m"];
 Get["calcolaProb.m"];
@@ -32,7 +32,8 @@ carteScoperte=Input["Inserisci il numero di carte scoperte: "];
 (*
 modalita=Input["Inserisci modalit\[AGrave]"];
 *)
-Switch[modalita,1,player=1;carteScoperte=4,
+Switch[modalita,
+1,player=1;carteScoperte=RandomInteger[{2,4}],
 2,player=1;carteScoperte=3,
 3,player=1;carteScoperte=3,
 4,player=2;carteScoperte=3,
@@ -79,9 +80,10 @@ Style[Pane[Column[{If[player>1,outputavversari]," ", outputbanco," ",outputgioca
 
 effectivecard = ToString[Mod[requestcard,13]];
 Switch[effectivecard,
+"0", effectivecard = "K",
+"1", effectivecard = "A",
 "11", effectivecard = "J",
 "12", effectivecard = "Q",
-"13", effectivecard = "K",
 _, "Errore"];
 
 (*
