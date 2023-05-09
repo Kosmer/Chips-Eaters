@@ -17,11 +17,12 @@
 
 draw::usage = "Disegnamento disegnante"
 
+BeginPackage["draw`"];
 Begin["Private`"]
 
-Dynamic[DrawAll[modalita_]:=Module[{},
+DrawAll[modalita_]:=Module[{},
 SetDirectory[NotebookDirectory[]];
-Get["randCard.m"];
+Get["randCards.m"];
 Get["calcolaProb.m"];
 (*
 player=Input["Inserisci il numero di giocatori: "];
@@ -38,12 +39,12 @@ Switch[modalita,1,player=1;carteScoperte=4,
 _, "Errore"];
 
 (*CREO LE CARTE DEL BANCO E DEL GIOCATORE*)
-{carteBanco,carteGiocatore}=randomCards[carteScoperte,player];
+{carteBanco,carteGiocatore}=randCards`randomCards[carteScoperte,player];
 
 (*CREO IL DISEGNO DELLE CARTE AVVERSARIO*)
 Switch[player,
 2,
-outputavversari=Row[{ImageResize[Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]}],300]}],
+outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center],
 3,
 outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4],Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[5]],carteGiocatore[[6]]},"CardSpreadAngle"->0.4]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center]
 ,
@@ -73,7 +74,7 @@ Style[Pane[Column[{If[player>1,outputavversari]," ", outputbanco," ",outputgioca
 *)
 
 (*RICAVO LA PROBABILITA' CORRETTA E LA CARTA RICHIESTA*)
-{correctprob, requestcard} = calcolaProb[carteBanco, carteGiocatore,player, modalita];
+{correctprob, requestcard} = calcolaProb`calcolaProb[carteBanco, carteGiocatore,player, modalita];
 
 effectivecard = ToString[Mod[requestcard,13]];
 Switch[effectivecard,
@@ -93,8 +94,8 @@ _, "Errore"]
 
 
 
-Return[{outputbanco,outputgiocatore, effectivecard, correctprob}];
-]
+Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob}];
 ]
 
 End[]
+EndPackage[]
