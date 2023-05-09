@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     18229,        357]
-NotebookOptionsPosition[     17570,        337]
-NotebookOutlinePosition[     18046,        355]
-CellTagsIndexPosition[     18003,        352]
+NotebookDataLength[     18422,        360]
+NotebookOptionsPosition[     17763,        340]
+NotebookOutlinePosition[     18239,        358]
+CellTagsIndexPosition[     18196,        355]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -128,6 +128,8 @@ Cell[BoxData[{
             RowBox[{"draw`DrawAll", "[", "modalita", "]"}]}], ";", 
            "\[IndentingNewLine]", 
            RowBox[{"result", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", 
+           RowBox[{"text", " ", "=", " ", "\"\<\>\""}], ";", 
+           "\[IndentingNewLine]", 
            RowBox[{"Switch", "[", 
             RowBox[{"modalita", ",", "\[IndentingNewLine]", "1", ",", 
              RowBox[{"richiesta", " ", "=", 
@@ -249,24 +251,24 @@ di \>\"", " ", "<>", "cardrequest", "<>", " ",
    3.892620978793783*^9}, {3.8926210361027164`*^9, 3.8926210385993285`*^9}, {
    3.892621095357606*^9, 3.892621142109782*^9}, {3.892624498766179*^9, 
    3.8926245000190125`*^9}, {3.8926245424356403`*^9, 3.892624580354271*^9}, {
-   3.8926247496177974`*^9, 
-   3.8926247533591022`*^9}},ExpressionUUID->"1ece7017-d0a5-4405-8be7-\
+   3.8926247496177974`*^9, 3.8926247533591022`*^9}, {3.8926249545912375`*^9, 
+   3.892624957686633*^9}},ExpressionUUID->"1ece7017-d0a5-4405-8be7-\
 fb36d1a4acd1"],
 
 Cell[BoxData[
  TemplateBox[{
   "Set", "shape", 
-   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"outputbanco$4825\\\", \
-\\\",\\\", \\\"outputgiocatore$4825\\\", \\\",\\\", \
-\\\"outputavversari$4825\\\", \\\",\\\", \\\"cardrequest$4825\\\", \\\",\\\", \
-\\\"rightprob$4825\\\"}], \\\"}\\\"}]\\) and \
-\\!\\(\\*RowBox[{\\\"DrawAll\\\", \\\"[\\\", \\\"2\\\", \\\"]\\\"}]\\) are \
-not the same shape.\"", 2, 6, 1, 18559234679826458884, "Local"},
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"outputbanco$4809\\\", \
+\\\",\\\", \\\"outputgiocatore$4809\\\", \\\",\\\", \
+\\\"outputavversari$4809\\\", \\\",\\\", \\\"cardrequest$4809\\\", \\\",\\\", \
+\\\"rightprob$4809\\\"}], \\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"DrawAll\\\", \\\"[\\\", \\\"1\\\", \\\"]\\\"}]\\) are \
+not the same shape.\"", 2, 6, 1, 18559235211299254424, "Local"},
   "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.892624704335966*^9},
+ CellChangeTimes->{3.892624704335966*^9, 3.892624786677289*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"3008f9dc-5af6-415a-a902-945a2db60d95"],
+In[1]:=",ExpressionUUID->"f0a2d48e-5e05-42ec-9bf4-763bacaa5156"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`outputbanco$$ = {}, \
@@ -286,7 +288,7 @@ $CellContext`cardrequest$$ = "", $CellContext`rightprob$$ =
      {"\<\" \"\>"},
      {
       DynamicBox[ToBoxes[$CellContext`richiesta, StandardForm],
-       ImageSizeCache->{644.7009922027587, {3., 10.}}]},
+       ImageSizeCache->{652.5631994247435, {3., 10.}}]},
      {"\<\" \"\>"},
      {
       TemplateBox[{
@@ -331,8 +333,9 @@ $CellContext`cardrequest$$ <> " estraendo le prossime 2 carte dal mazzo?",
   DynamicModuleValues:>{}]], "Output",
  CellChangeTimes->{{3.8926213628714037`*^9, 3.8926213785931168`*^9}, 
    3.8926232101463957`*^9, 3.892623646736834*^9, {3.8926237117159443`*^9, 
-   3.892623751878607*^9}, 3.892624133393178*^9, 3.8926247043814507`*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"12a84b99-5a09-4523-822e-b670c6f52fd5"]
+   3.892623751878607*^9}, 3.892624133393178*^9, 3.8926247043814507`*^9, 
+   3.892624786705246*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"eac1ad10-2df2-4731-9c08-0733a1b63aaf"]
 }, Open  ]]
 },
 WindowSize->{1141.2, 568.8},
@@ -355,9 +358,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 13365, 231, 744, "Input",ExpressionUUID->"1ece7017-d0a5-4405-8be7-fb36d1a4acd1"],
-Cell[13948, 255, 633, 13, 30, "Message",ExpressionUUID->"3008f9dc-5af6-415a-a902-945a2db60d95"],
-Cell[14584, 270, 2970, 64, 187, "Output",ExpressionUUID->"12a84b99-5a09-4523-822e-b670c6f52fd5"]
+Cell[580, 22, 13510, 233, 765, "Input",ExpressionUUID->"1ece7017-d0a5-4405-8be7-fb36d1a4acd1"],
+Cell[14093, 257, 655, 13, 30, "Message",ExpressionUUID->"f0a2d48e-5e05-42ec-9bf4-763bacaa5156"],
+Cell[14751, 272, 2996, 65, 187, "Output",ExpressionUUID->"eac1ad10-2df2-4731-9c08-0733a1b63aaf"]
 }, Open  ]]
 }
 ]
