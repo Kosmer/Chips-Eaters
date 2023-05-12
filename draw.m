@@ -56,7 +56,7 @@ outputgiocatore=Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore
 outputgiocatore;
 
 (*RICAVO LA PROBABILITA' CORRETTA E LA CARTA RICHIESTA*)
-{correctprob, requestcard} = calcolaProb`calcolaProb[carteBanco, carteGiocatore,player, modalita];
+{correctprob, requestcard, spiegazione} = calcolaProb`calcolaProb[carteBanco, carteGiocatore,player, modalita];
 
 effectivecard = ToString[Mod[requestcard,13]];
 Switch[effectivecard,
@@ -66,7 +66,7 @@ Switch[effectivecard,
 "12", effectivecard = "Q",
 _, "Errore"];
 
-Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob}];
+Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob, spiegazione}];
 ]
 
 End[]

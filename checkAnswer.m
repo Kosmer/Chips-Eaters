@@ -33,7 +33,7 @@ Begin["`Private`"]
 			
 			Switch[mode,
 				1,If[userAnswer==correctAnswer,guessed="Giusto!"],
-				2,If[userAnswer<=correctAnswer+5&&userAnswer>=correctAnswer-5,guessed="Giusto!"],
+				2,If[userAnswer==correctAnswer,guessed="Giusto!"],
 				3,If[userAnswer<=correctAnswer+4&&userAnswer>=correctAnswer-4,guessed="Giusto!"],
 				4,If[userAnswer<=correctAnswer+3&&userAnswer>=correctAnswer-3,guessed="Giusto!"],
 				5,If[userAnswer<=correctAnswer+2&&userAnswer>=correctAnswer-2,guessed="Giusto!"],
