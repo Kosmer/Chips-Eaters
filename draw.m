@@ -86,9 +86,10 @@ drawAll[modalita_]:=
 	Dynamic[avversari]],
 	Dynamic[banco], Dynamic[giocatore]," ", Dynamic[richiesta]," ",
 	Row[{
-	InputField[Dynamic[text],String]," ", Button["Verifica Risultato",answer=ToExpression[text];
-	result=checkAnswer`checkAnswer[answer,rightp,modalita];]," ",Dynamic@Row[{result}]}],
-	Button["Pulisci esercizio", text = ""; result=""],
+	InputField[Dynamic[text],String, ImageSize -> {100, 20}]," ", Button["Verifica Risultato",answer=ToExpression[text];
+	result=checkAnswer`checkAnswer[answer,rightp,modalita];]," "(*,Dynamic@Row[{result}]*)}],
+	Dynamic@Row[{result}],
+	Button["Pulisci esercizio", text = ""; result="",ImageSize -> {200, 25}],
 	Button["Nuovo esercizio",
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita];
 	result="";
@@ -98,10 +99,11 @@ drawAll[modalita_]:=
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
-	_, "Errore"];
+	_, "Errore"];,
+	ImageSize -> {200, 25}
 	],
-	Button["Spiegazione",spiegazione2=spiegazione],Dynamic[spiegazione2]
-	}];
+	Button["Spiegazione",spiegazione2=spiegazione, ImageSize -> {200, 25}],Dynamic[spiegazione2]
+	}, ItemSize -> {60, Automatic}, Alignment -> Center];
 	Dynamic[esercizio]
 	];
 

@@ -64,11 +64,11 @@ Begin["`Private`"]
 			(*ora calcoliamo la probabilita che esca una coppia,nel caso ci sia gia l'utente se ne deve accorgere e deve dire 1*)
 			If[contacoppie>1,probabilita = 1; probabilitastr = "1";
 			spiegazione = "
-In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>ToString[probabilitastr]<>". Tra mano e banco ci sono gia altre carte con il numero "<>ToString[cartaeffettiva]<> ".
+In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>ToString[probabilitastr]<>". Tra mano e banco c'\[EGrave] gi\[AGrave] una coppia di carte con il numero "<>ToString[cartaeffettiva]<> ".
 Quindi la probabilit\[AGrave] \[EGrave] semplicemente 1.", probabilita = 3/carteRimanenti; probabilitastr="3/"<>ToString[carteRimanenti];
 			spiegazione = "
-In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>ToString[probabilitastr]<>". Tra mano e banco non ci sono altre carte con il numero "<>ToString[cartaeffettiva]<> ".
-Quindi la probabilit\[AGrave] \[EGrave] calcolata come i casi favorevoli su i casi totali.";
+In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>ToString[probabilitastr]<>". Tra mano e banco c'\[EGrave] solo una carta con il numero "<>ToString[cartaeffettiva]<> ".
+Quindi la probabilit\[AGrave] che ne esca un'altra \[EGrave] calcolata come i casi favorevoli su i casi totali.";
 			];
 			,
 			
