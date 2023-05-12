@@ -17,11 +17,13 @@
 
 BeginPackage["draw`"];
 
-drawAll::usage = "Disegnamento disegnante"
+createAll::usage = "Creazione creante"
+drawAll::usage = "Disegno disegnante"
+
 
 Begin["`Private`"]
 
-drawAll[modalita_]:=Module[{},
+createAll[modalita_]:=Module[{},
 SetDirectory[NotebookDirectory[]];
 Get["randCards.m"];
 Get["calcolaProb.m"];
@@ -67,7 +69,41 @@ Switch[effectivecard,
 _, "Errore"];
 
 Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob, spiegazione}];
-]
+];
+
+
+drawAll[modalita_]:= 
+	
+	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2=""},
+	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita];
+	Switch[modalita,
+	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
+	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	_, "Errore"];
+	esercizio = Column[{
+	If[modalita>3,
+	Dynamic[avversari]],
+	Dynamic[banco], Dynamic[giocatore]," ", Dynamic[richiesta]," ",
+	Row[{
+	InputField[Dynamic[text],String]," ", Button["Verifica Risultato",answer=ToExpression[text];
+	result=checkAnswer`checkAnswer[answer,rightp,modalita];]," ",Dynamic@Row[{result}]}],
+	Button["Pulisci esercizio", text = ""; result=""],
+	Button["Nuovo esercizio",
+	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita];
+	result="";
+	text = "";
+	spiegazione2="";
+	Switch[modalita,
+	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
+	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	_, "Errore"];
+	],
+	Button["Spiegazione",spiegazione2=spiegazione],Dynamic[spiegazione2]
+	}];
+	Dynamic[esercizio]
+	];
 
 End[]
 EndPackage[]
