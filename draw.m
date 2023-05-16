@@ -31,7 +31,7 @@ Get["calcolaProb.m"];
 Switch[modalita,
 1,player=1;carteScoperte=RandomInteger[{2,4}],
 2,player=1;carteScoperte=3,
-3,player=1;carteScoperte=3,
+3,player=1;carteScoperte=RandomInteger[{2,3}],
 4,player=2;carteScoperte=3,
 5,player = 3; carteScoperte = 4,
 _, "Errore"];
@@ -74,7 +74,7 @@ Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob
 
 drawAll[modalita_]:= 
 	
-	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2=""},
+	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2="", scelta="Modalit\[AGrave] 1: Semplice", selezione="Hai selezionato la modalit\[AGrave] 1.", modalita2 = modalita},
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita];
 	Switch[modalita,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
@@ -82,6 +82,15 @@ drawAll[modalita_]:=
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	_, "Errore"];
 	esercizio = Column[{
+	
+	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" }],
+	Dynamic[Switch[scelta,
+	"Modalit\[AGrave] 1: Semplice",selezione="Hai selezionato la modalit\[AGrave] 1."; modalita2 =1 ; ,
+	"Modalit\[AGrave] 2: Intermedio",selezione="Hai selezionato la modalit\[AGrave] 2.";modalita2 =2; ,
+	"Modalit\[AGrave] 3: Difficile",selezione="Hai selezionato la modalit\[AGrave] 3.";modalita2=3 ;,
+	"Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4;]
+	],
+	
 	If[modalita>3,
 	Dynamic[avversari]],
 	Dynamic[banco], Dynamic[giocatore]," ", Dynamic[richiesta]," ",
@@ -91,11 +100,11 @@ drawAll[modalita_]:=
 	Dynamic@Row[{result}],
 	Button["Pulisci esercizio", text = ""; result="",ImageSize -> {200, 25}],
 	Button["Nuovo esercizio",
-	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita];
+	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita2];
 	result="";
 	text = "";
 	spiegazione2="";
-	Switch[modalita,
+	Switch[modalita2,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
