@@ -106,7 +106,8 @@ drawAll[modalita_Integer]:=
 	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
 	InputField[Dynamic[seedtext],String, ImageSize -> {100, 20}],
 	Button["Carica Seed",
-	seed = ToExpression[seedtext];
+	If[IntegerQ[seedtext]==True,
+	seed = ToExpression[seedtext];, seed = 0];
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
 	result="";
 	text = "";
