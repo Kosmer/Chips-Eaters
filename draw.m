@@ -23,11 +23,12 @@ drawAll::usage = "Disegno disegnante"
 
 Begin["`Private`"]
 
-createAll[modalita_]:=Module[{},
+createAll[modalita_Integer, seed_Integer]:=Module[{},
 SetDirectory[NotebookDirectory[]];
 Get["randCards.m"];
 Get["calcolaProb.m"];
 
+(*
 Switch[modalita,
 1,player=1;carteScoperte=RandomInteger[{2,4}],
 2,player=1;carteScoperte=3,
@@ -35,16 +36,26 @@ Switch[modalita,
 4,player=2;carteScoperte=3,
 5,player = 3; carteScoperte = 4,
 _, "Errore"];
+*)
+
+Switch[modalita,
+1,player=1,
+2,player=1,
+3,player=1,
+4,player=2,
+5,player = 3,
+_, "Errore"];
+
 
 (*CREO LE CARTE DEL BANCO E DEL GIOCATORE*)
-{carteBanco,carteGiocatore}=randCards`randomCards[carteScoperte,player];
+{carteBanco,carteGiocatore, nSeed}=randCards`randomCards[modalita, player, seed];
 
 (*CREO IL DISEGNO DELLE CARTE AVVERSARIO*)
 Switch[player,
 2,
-outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center],
+outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4, Background->RGBColor[0.3,0.7,0.4]]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center],
 3,
-outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4],Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[5]],carteGiocatore[[6]]},"CardSpreadAngle"->0.4]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center]
+outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4, Background->RGBColor[0.3,0.7,0.4]],Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[5]],carteGiocatore[[6]]},"CardSpreadAngle"->0.4, Background->RGBColor[0.3,0.7,0.4]]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center]
 ,
 _,
 "Errore"];
@@ -54,7 +65,7 @@ outputbanco=Row[{ResourceFunction["PlayingCardGraphic"][carteBanco[[1]]],Resourc
 outputbanco;
 
 (*CREO IL DISEGNO DELLE CARTE GIOCATORE*)
-outputgiocatore=Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[1]],carteGiocatore[[2]]}];
+outputgiocatore=Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[1]],carteGiocatore[[2]]}, Background->RGBColor[0.3,0.7,0.4]];
 outputgiocatore;
 
 (*RICAVO LA PROBABILITA' CORRETTA E LA CARTA RICHIESTA*)
@@ -68,15 +79,15 @@ Switch[effectivecard,
 "12", effectivecard = "Q",
 _, "Errore"];
 
-Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob, spiegazione}];
+Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob, spiegazione, nSeed}];
 ];
 
 
-drawAll[modalita_]:= 
+drawAll[modalita_Integer]:= 
 	
-	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2="", scelta="Modalit\[AGrave] 1: Semplice", selezione="Hai selezionato la modalit\[AGrave] 1.", modalita2 = modalita},
-	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita];
-	Switch[modalita,
+	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2="", scelta="Modalit\[AGrave] 1: Semplice", selezione="Hai selezionato la modalit\[AGrave] 1.", modalita2 = modalita, seed = 0, nSeed2, seedtext=""},
+	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
+	Switch[modalita2,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
@@ -91,6 +102,22 @@ drawAll[modalita_]:=
 	"Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
 	],
 	
+	Row[{
+	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
+	InputField[Dynamic[seedtext],String, ImageSize -> {100, 20}],
+	Button["Carica Seed",
+	seed = ToExpression[seedtext];
+	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
+	result="";
+	text = "";
+	spiegazione2="";
+	Switch[modalita2,
+	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
+	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	_, "Errore"];
+	]
+	}],
 	If[modalita>3,
 	Dynamic[avversari]],
 	Dynamic[banco], Dynamic[giocatore]," ", Dynamic[richiesta]," ",
@@ -100,7 +127,9 @@ drawAll[modalita_]:=
 	Dynamic@Row[{result}],
 	Button["Pulisci esercizio", text = ""; result="",ImageSize -> {200, 25}],
 	Button["Nuovo esercizio",
-	{banco,giocatore,avversari, cardreq,rightp, spiegazione}=draw`createAll[modalita2];
+	seed = 0;
+	seedtext = "";
+	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
 	result="";
 	text = "";
 	spiegazione2="";

@@ -135,7 +135,7 @@ P2 \[EGrave] 3 * 2 * 1 / i casi totali.";
 			];
 			,
 			_,
-			Print["ci sono piu di 3 carte da estrarre"]; probabilita =0;
+			(*Print["ci sono piu di 3 carte da estrarre"]; *)probabilita =0;
 			];
 			
 			
@@ -143,7 +143,7 @@ P2 \[EGrave] 3 * 2 * 1 / i casi totali.";
 			If[contacoppie  >3,probabilita = 1;
 			spiegazione = "Spiegazione della risposta.
 La probabilit\[AGrave] \[EGrave] 1. C'\[EGrave] gia un tris con la carta scelta sul banco.";];
-			If[contacoppie + carteBancocoperte<3,probabilita = 0; Print["coppie + carte min 2"];
+			If[contacoppie + carteBancocoperte<3,probabilita = 0; (*Print["coppie + carte min 2"];*)
 			spiegazione = "Spiegazione della risposta.
 La probabilit\[AGrave] \[EGrave] 0. Non \[EGrave] possibilie fare un tris dato che non abbiamo abbastanza carte coperte.";];
 			,
@@ -257,6 +257,4 @@ EndPackage[]
 
 
 calcolaProb[{1,2,3,2,21},{26,32},1,2]
-
-
 
