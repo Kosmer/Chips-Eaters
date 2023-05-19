@@ -21,9 +21,21 @@ randCards::usage = "randomCards[x, y] ritorna due liste di carte, la prima conti
 
 Begin["`Private`"]
 
-	randomCards[nDiscoveredCards_Integer,nPlayers_Integer]:=
+	randomCards[modalita_Integer, nPlayers_Integer, nSeed_Integer]:=
 		Module[
-			{banco,mani,p,b,ArrayCheck,nPlayer,nDiscovered},ArrayCheck={};
+			{banco,mani,p,b,ArrayCheck,nPlayer,nDiscovered, n, seed, nSeed2, nDiscoveredCards},ArrayCheck={};
+			
+			nSeed2 = nSeed;
+			If[nSeed2==0, nSeed2 = RandomInteger[{1,500}]; seed = SeedRandom[nSeed2], seed = SeedRandom[nSeed2]];
+			
+			Switch[modalita,
+			1,nDiscoveredCards=RandomInteger[{2,4}],
+			2,nDiscoveredCards=3,
+			3,nDiscoveredCards=RandomInteger[{2,3}],
+			4,nDiscoveredCards=3,
+			5,nDiscoveredCards = 4,
+			_, "Errore"];
+			
 			banco=Table[0,{5}];
 			mani=Table[0,{nPlayers*2}];
 			nDiscovered=1;
@@ -41,7 +53,7 @@ Begin["`Private`"]
 			While[MemberQ[ArrayCheck,mani[[nPlayer]]],mani[[nPlayer]]=RandomInteger[{1,52}]];
 				ArrayCheck=Append[ArrayCheck,mani[[nPlayer]]];nPlayer+=1;
 			];
-			{banco,mani}
+			{banco,mani, nSeed2}
 		]
 
 End[]
