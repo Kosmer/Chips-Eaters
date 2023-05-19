@@ -27,6 +27,7 @@ Begin["`Private`"]
 			probabilita=0;
 			probabilitastr = "0";
 			contacoppie=0;
+			contacoppiemie=0;
 			contacoppietotali =0;
 			carteBancoscoperte=Select[carteBanco,#!=0&] ;
 			(*Print[carteBancoscoperte]; giusto*)
