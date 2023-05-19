@@ -256,7 +256,7 @@ EndPackage[]
 
 
 
-calcolaProb[{1,2,3,2,21},{26,32},1,2]
+
 
 
 
