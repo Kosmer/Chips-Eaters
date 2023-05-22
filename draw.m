@@ -85,7 +85,7 @@ Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob
 
 drawAll[modalita_Integer]:= 
 	
-	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2="", scelta="Modalit\[AGrave] 1: Semplice", selezione="Hai selezionato la modalit\[AGrave] 1.", modalita2 = modalita, seed = 0, nSeed2, seedtext=""},
+	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2="", scelta="Modalit\[AGrave] 1: Semplice", selezione="Hai selezionato la modalit\[AGrave] 1.", modalita2 = modalita, seed = 0, nSeed2, seedtext="", erroretipo=""},
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
 	Switch[modalita2,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
@@ -106,8 +106,7 @@ drawAll[modalita_Integer]:=
 	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
 	InputField[Dynamic[seedtext],String, ImageSize -> {100, 20}],
 	Button["Carica Seed",
-	If[IntegerQ[seedtext]==True,
-	seed = ToExpression[seedtext];, seed = 0];
+	If[IntegerQ[seedtext]==True, seed = ToExpression[seedtext]; erroretipo="", erroretipo="Valore inserito non valido!"];
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
 	result="";
 	text = "";
@@ -119,6 +118,7 @@ drawAll[modalita_Integer]:=
 	_, "Errore"];
 	]
 	}],
+	Dynamic[erroretipo],
 	If[modalita>3,
 	Dynamic[avversari]],
 	Dynamic[banco], Dynamic[giocatore]," ", Dynamic[richiesta]," ",
