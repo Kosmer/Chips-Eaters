@@ -16,7 +16,10 @@
 (* :Warning: package Context is not defined *)
 
 BeginPackage["checkAnswer`"];
-checkAnswer::usage = "checkAnswer[x, y, z] ritorna la stringa Giusto! o Sbagliato! se la risposta x fornita dall'utente \[EGrave] uguale alla risposta y corretta, z \[EGrave] la modalit\[AGrave] che cambia il criterio di valutazione della risposta"
+
+checkAnswer::usage = "checkAnswer[userAnswer,correctAnswer,mode], dove userAnswer indica la risporta fornita dall'utente,
+correctAnswer indica la risposta corretta e mode indica la modalit\[AGrave] di gioco in corso (che ne definisce anche i criteri di valutazione). 
+La funzione ritorna la stringa \"Giusto!\" o \"Sbagliato!\" se la risposta fornita dall'utente \[EGrave] uguale alla risposta corretta."
 
 Begin["`Private`"]
 

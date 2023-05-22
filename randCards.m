@@ -17,8 +17,10 @@
 
 BeginPackage["randCards`"];
 
-randCards::usage = "randomCards[x, y] ritorna due liste di carte, la prima contiene le carte del banco con x carte scoperte, mentre la seconda contiene 2*y carte che rappresentano le mani da due carte in base al numero di giocatori."
-
+randCards::usage = "randomCards[modalita, nPlayers, nSeed], dove modalita indica la modalit\[AGrave] del gioco in corso, nPlayers indica il numero di giocatori che giocano, nSeed indica il seme 
+del generatore casuale delle carte del gioco. La funzione ritorna due liste di carte ed il nuovo seme del generatore, la prima lista contiene le carte del banco con un certo numero di
+ carte scoperte, mentre la seconda contiene le carte di ciascuna mano di ciascun giocatore."
+ 
 Begin["`Private`"]
 
 	randomCards[modalita_Integer, nPlayers_Integer, nSeed_Integer]:=
