@@ -61,17 +61,17 @@ Begin["`Private`"]
 			
 			carteRimanenti=52-Length[carteScoperteTotali];
 			probabilita = 3/carteRimanenti;
-			probabilitastr = probabilita;
+			probabilitastr = ToString[3]<>"/"<>ToString[carteRimanenti];
 			spiegazione = "
-In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>ToString[probabilitastr]<>". Tra mano e banco c'\[EGrave] solo una carta con il numero "<>ToString[cartaeffettiva]<> ".
+In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<> probabilitastr <>". Tra mano e banco c'\[EGrave] solo una carta con il numero "<>ToString[cartaeffettiva]<> ".
 Quindi la probabilit\[AGrave] che ne esca un'altra \[EGrave] calcolata come i casi favorevoli su i casi totali.
-La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
+La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
 			(*ora calcoliamo la probabilita che esca una coppia,nel caso ci sia gia l'utente se ne deve accorgere e deve dire 1*)
 			If[contacoppie>1,probabilita = 1; probabilitastr = "1";
 			spiegazione = "
-In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>ToString[probabilitastr]<>". Tra mano e banco c'\[EGrave] gi\[AGrave] una coppia di carte con il numero "<>ToString[cartaeffettiva]<> ".
+In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>probabilitastr<>". Tra mano e banco c'\[EGrave] gi\[AGrave] una coppia di carte con il numero "<>ToString[cartaeffettiva]<> ".
 Quindi la probabilit\[AGrave] \[EGrave] semplicemente 1.
-La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
+La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
 			];
 			,
 			
@@ -95,10 +95,10 @@ La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
 			carteRimanenti=52-Length[carteScoperteTotali];
 			Switch[carteBancocoperte,
 			1,
-			If[contacoppie == 2, probabilita = 2/carteRimanenti;
+			If[contacoppie == 2, probabilita = 2/carteRimanenti; probabilitastr = ToString[2]<>"/"<>ToString[carteRimanenti];
 			spiegazione = "Spiegazione della risposta.
-In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[probabilita]<>", cio\[EGrave] 2 sul numero di carte rimanenti.
-La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
+In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>probabilitastr<>", cio\[EGrave] 2 sul numero di carte rimanenti.
+La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
 			];
 			,
 			2,
@@ -269,6 +269,4 @@ La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
 	]
 End[]
 EndPackage[]
-
-
 
