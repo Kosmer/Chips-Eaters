@@ -51,7 +51,8 @@ _, "Errore"];
 {carteBanco,carteGiocatore, nSeed}=randCards`randomCards[modalita, player, seed];
 
 (*CREO IL DISEGNO DELLE CARTE AVVERSARIO*)
-Switch[player,
+Switch[player, 
+1, outputavversari=Grid[{}],
 2,
 outputavversari=Grid[{{Rasterize@ResourceFunction["PlayingCardGraphic"][{carteGiocatore[[3]],carteGiocatore[[4]]},"CardSpreadAngle"->0.4, Background->RGBColor[0.3,0.7,0.4]]}},Spacings->{Scaled[0.1],Scaled[0.1]},Alignment->Center],
 3,
@@ -91,16 +92,17 @@ drawAll[modalita_Integer]:=
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];
 	esercizio = Column[{
 	
 	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" }],
-	Dynamic[Switch[scelta,
+	Dynamic[Pane[Switch[scelta,
 	"Modalit\[AGrave] 1: Semplice",selezione="Hai selezionato la modalit\[AGrave] 1."; modalita2 =1 ; ,
 	"Modalit\[AGrave] 2: Intermedio",selezione="Hai selezionato la modalit\[AGrave] 2.";modalita2 =2; ,
 	"Modalit\[AGrave] 3: Difficile",selezione="Hai selezionato la modalit\[AGrave] 3.";modalita2=3 ; ,
 	"Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
-	],
+	]],
 	
 	Row[{
 	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
@@ -118,13 +120,15 @@ drawAll[modalita_Integer]:=
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];
 	, erroretipo="Valore inserito non valido!"];
 	]
 	}],
 	Dynamic[erroretipo],
-	If[modalita>3,
-	Dynamic[avversari]],
+	If[modalita<4,
+	avversari=""];
+	Dynamic[avversari],
 	Dynamic[banco], Dynamic[giocatore]," ", Dynamic[richiesta]," ",
 	Row[{
 	InputField[Dynamic[text],String, ImageSize -> {100, 20}]," ", Button["Verifica Risultato",answer=ToExpression[text];
@@ -144,6 +148,7 @@ drawAll[modalita_Integer]:=
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];,
 	ImageSize -> {200, 25}
 	],
