@@ -16,7 +16,10 @@
 (* :Warning: package Context is not defined *)
 
 BeginPackage["calcolaProb`"];
-calcolaProb::usage = "calcolaProb[x, y, w, z]"
+calcolaProb::usage = "calcolaProb[carteBanco,carteGiocatore,player,modalita], dove carteBanco \[EGrave] una lista che contiene le carte presenti nel banco, carteGiocatore \[EGrave] una lista che contiene 
+le carte di tutti i giocatori, player indica il numero di giocatori, modalita \[EGrave] la modalit\[AGrave] del gioco in corso. La funzione ritorna una lista {probabilita, cartascelta, spiegazione}, dove 
+probabilita indica la soluzione corretta dell'esercizio in corso, cartascelta indica la carta oggetto della domanda rivolta all'utente, spiegazione contiene sia la soluzione che una breve 
+spiegazione del calcolo corretto per giungere alla soluzione dell'esercizio in corso."
 
 Begin["`Private`"]
 
@@ -103,8 +106,9 @@ La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
 			,
 			2,
 			If[contacoppie == 2, probabilita =  2*((carteRimanenti-2) /carteRimanenti) * (2/(carteRimanenti-1)) + (2/(carteRimanenti*(carteRimanenti-1)));
+			probabilitastr = ToString[Numerator[probabilita]]<> "/"<>ToString[Denominator[probabilita]];
 			spiegazione = "Spiegazione della risposta.
-In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[probabilita]<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con quel numero esca in una delle due carte ancora coperte.
+In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>probabilitastr<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con quel numero esca in una delle due carte ancora coperte.
 Per calcolarla sommiamo la probabilit\[AGrave] che una carta con lo stesso numero della carta scelta esca con la prima carta coperta (P1) alla probabilit\[AGrave] che esca alla seconda (P2).
 P1 e P2 sono uguali. P1 \[EGrave] uguale a "<>ToString[carteRimanenti]<>"(carte rimanenti) - 2 / "<>ToString[carteRimanenti]<>" * 2 /"<>ToString[carteRimanenti]<>" - 1
 A questo dobbiamo sommare il caso in cui il giocatore faccia Poker, quindi 2 / "<>ToString[carteRimanenti]<>" * "<>ToString[carteRimanenti]<>" - 1";
