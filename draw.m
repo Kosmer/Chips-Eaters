@@ -17,8 +17,15 @@
 
 BeginPackage["draw`"];
 
-createAll::usage = "Creazione creante"
-drawAll::usage = "Disegno disegnante"
+createAll::usage = "createAll[modalita, seed], dove modalita \[EGrave] la modalit\[AGrave] del gioco in corso, seed \[EGrave] il seme del generatore di numeri casuali. La funzione ritorna una lista 
+{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob, spiegazione, nSeed}, dove outputbanco \[EGrave] la lista delle immagini delle carte del banco, outputgiocatore \[EGrave] 
+la lista delle immagini delle carte del giocatore (utente), outputavversari \[EGrave] la lista delle immagini delle carte degli avversari, effectivecard \[EGrave] la carta che viene richiesta nella 
+domanda, correctprob \[EGrave] la probaili\[AGrave] corretta nonch\[EGrave] soluzione dell'esercizio in corso, spiegazione \[EGrave] una stringa che contiene la soluzione all'esercizio in corso con una spiegazione per 
+l'utente, nSeed \[EGrave] il nuovo seme del generatore casuale di numeri."
+
+
+drawAll::usage = "drawAll[modalita], dove modalita \[EGrave] la modalit\[AGrave] del gioco in corso. La funzione ritorna una struttura che contiene tutti i valori di ritorno creati dalla funzione 
+createAll, ovvero ritorna tutta l'interfaccia utente."
 
 
 Begin["`Private`"]

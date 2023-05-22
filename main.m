@@ -17,7 +17,7 @@
 
 BeginPackage["main`"];
 
-main::usage = "Popi's and the Popis"
+main::usage = "Funzione principale che ritorna l'intera interfaccia utente interattiva."
 
 Begin["`Private`"]
 
@@ -26,7 +26,6 @@ main[]:=
 	SetDirectory[NotebookDirectory[]];
 	Get["draw.m"];
 	Get["checkAnswer.m"];
-	Get["test.m"];
 
 	Return[CellPrint@ExpressionCell[draw`drawAll[1],"Output", Background->RGBColor[0.3,0.7,0.4],CellFrame->{{1,1},{1,1}},CellFrameColor->Red]]
 ];
