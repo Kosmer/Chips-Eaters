@@ -106,16 +106,20 @@ drawAll[modalita_Integer]:=
 	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
 	InputField[Dynamic[seedtext],String, ImageSize -> {100, 20}],
 	Button["Carica Seed",
-	If[IntegerQ[seedtext]==True, seed = ToExpression[seedtext]; erroretipo="", erroretipo="Valore inserito non valido!"];
+	If[IntegerQ[ToExpression[seedtext]]==True,
+	seed = ToExpression[seedtext];
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
 	result="";
 	text = "";
+	erroretipo="";
 	spiegazione2="";
+	seedtext="";
 	Switch[modalita2,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	_, "Errore"];
+	, erroretipo="Valore inserito non valido!"];
 	]
 	}],
 	Dynamic[erroretipo],
@@ -134,6 +138,8 @@ drawAll[modalita_Integer]:=
 	result="";
 	text = "";
 	spiegazione2="";
+	erroretipo="";
+	seedtext="";
 	Switch[modalita2,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
 	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
