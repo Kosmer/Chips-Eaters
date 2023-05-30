@@ -79,7 +79,7 @@ outputgiocatore;
 (*RICAVO LA PROBABILITA' CORRETTA E LA CARTA RICHIESTA*)
 {correctprob, requestcard, spiegazione} = calcolaProb`calcolaProb[carteBanco, carteGiocatore,player, modalita];
 
-effectivecard = ToString[Mod[requestcard,13]];
+effectivecard = ToString[Mod[requestcard,13]]; (*trasformiamo il numero della carta da 1 a 52 nella carta effettiva da 2 all'Asso*)
 Switch[effectivecard,
 "0", effectivecard = "K",
 "1", effectivecard = "A",
@@ -93,6 +93,7 @@ Return[{outputbanco,outputgiocatore, outputavversari, effectivecard, correctprob
 
 drawAll[modalita_Integer]:= 
 	
+	(*qui si formula la domanda da fare all utente*)
 	DynamicModule[{banco = {}, giocatore={}, avversari={}, cardreq="",rightp= 0,text="",result="", answer=0, richiesta="", esercizio, spiegazione = "", spiegazione2="", scelta="Modalit\[AGrave] 1: Semplice", selezione="Hai selezionato la modalit\[AGrave] 1.", modalita2 = modalita, seed = 0, nSeed2, seedtext="", erroretipo=""},
 	{banco,giocatore,avversari, cardreq,rightp, spiegazione, nSeed2}=draw`createAll[modalita2, seed];
 	Switch[modalita2,
@@ -102,7 +103,7 @@ drawAll[modalita_Integer]:=
 	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];
 	esercizio = Column[{
-	
+	(*bottoni per la scelta della modalit\[AGrave]*)
 	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" }],
 	Dynamic[Pane[Switch[scelta,
 	"Modalit\[AGrave] 1: Semplice",selezione="Hai selezionato la modalit\[AGrave] 1."; modalita2 =1 ; ,
@@ -110,7 +111,7 @@ drawAll[modalita_Integer]:=
 	"Modalit\[AGrave] 3: Difficile",selezione="Hai selezionato la modalit\[AGrave] 3.";modalita2=3 ; ,
 	"Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
 	]],
-	
+	(*gestione del seed per poter far rifare all'utente esercizi passati*)
 	Row[{
 	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
 	InputField[Dynamic[seedtext],String, ImageSize -> {100, 20}],
@@ -129,7 +130,7 @@ drawAll[modalita_Integer]:=
 	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
 	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];
-	, erroretipo="Valore inserito non valido!"];
+	, erroretipo="Valore inserito non valido!"]; (*gestione di modalit\[AGrave] con valore non valido*)
 	]
 	}],
 	Dynamic[erroretipo],
@@ -141,7 +142,7 @@ drawAll[modalita_Integer]:=
 	InputField[Dynamic[text],String, ImageSize -> {100, 20}]," ", Button["Verifica Risultato",answer=ToExpression[text];
 	result=checkAnswer`checkAnswer[answer,rightp,modalita];]," "(*,Dynamic@Row[{result}]*)}],
 	Dynamic@Row[{result}],
-	Button["Pulisci esercizio", text = ""; result="",ImageSize -> {200, 25}],
+	Button["Pulisci esercizio", text = ""; result="",ImageSize -> {200, 25}],  (*creazione dei bottoni*)
 	Button["Nuovo esercizio",
 	seed = 0;
 	seedtext = "";
@@ -158,8 +159,8 @@ drawAll[modalita_Integer]:=
 	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];,
 	ImageSize -> {200, 25}
-	],
-	Button["Spiegazione",spiegazione2=spiegazione, ImageSize -> {200, 25}],Dynamic[spiegazione2]
+	], 
+	Button["Spiegazione",spiegazione2=spiegazione, ImageSize -> {200, 25}],Dynamic[spiegazione2] (*gestione della spiegazione della risposta*)
 	}, ItemSize -> {60, Automatic}, Alignment -> Center];
 	Dynamic[esercizio]
 	];

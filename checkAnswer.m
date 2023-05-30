@@ -23,24 +23,24 @@ La funzione ritorna la stringa \"Giusto!\" o \"Sbagliato!\" se la risposta forni
 
 Begin["`Private`"]
 
-	checkAnswer[userAnswer_,correctAnswer_,mode_]:=
-		Module[{uAns,cAns,guessed},
+	checkAnswer[userAnswear_,correctAnswear_,mode_]:=
+		Module[{uAns,cAns,guessed},(*creazione del modulo*)
 		
 			(*se la modalit\[AGrave] precede le frazioni,le semplifico a priori*)
 			If[mode==1,
-				uAns=Simplify[userAnswer];
-				cAns=Simplify[correctAnswer];
+				uAns=Simplify[userAnswear]; (*serve per semplificare l'espressione che \[EGrave] in answear, per confrontarlo con la risposta corretta dato che come risposta si accetta anche la formula completa *)
+				cAns=Simplify[correctAnswear];
 			];
 			
 			guessed="Sbagliato!";
-			
+			(*qui vengono fatti i controlli per capire se la risposta fornita dall'utente \[EGrave] esatta*)
 			Switch[mode,
-				1,If[userAnswer==correctAnswer,guessed="Giusto!"],
-				2,If[userAnswer==correctAnswer,guessed="Giusto!"],
-				3,If[userAnswer<=correctAnswer+4&&userAnswer>=correctAnswer-4,guessed="Giusto!"],
-				4,If[userAnswer<=correctAnswer+3&&userAnswer>=correctAnswer-3,guessed="Giusto!"],
-				5,If[userAnswer<=correctAnswer+2&&userAnswer>=correctAnswer-2,guessed="Giusto!"],
-				6,If[userAnswer<=correctAnswer+1&&userAnswer>=correctAnswer-1,guessed="Giusto!"],
+				1,If[userAnswear==correctAnswear,guessed="Giusto!"],
+				2,If[userAnswear==correctAnswear,guessed="Giusto!"],
+				3,If[userAnswear<=correctAnswear+4&&userAnswear>=correctAnswear-4,guessed="Giusto!"],
+				4,If[userAnswear<=correctAnswear+3&&userAnswear>=correctAnswear-3,guessed="Giusto!"],
+				5,If[userAnswear<=correctAnswear+2&&userAnswear>=correctAnswear-2,guessed="Giusto!"],
+				6,If[userAnswear<=correctAnswear+1&&userAnswear>=correctAnswear-1,guessed="Giusto!"],
 				_,"Errore, modalit\[AGrave] non esistente"];
 				
 			Return[guessed];

@@ -28,9 +28,9 @@ Begin["`Private`"]
 			{banco,mani,p,b,ArrayCheck,nPlayer,nDiscovered, n, seed, nSeed2, nDiscoveredCards},ArrayCheck={};
 			
 			nSeed2 = nSeed;
-			If[nSeed2==0, nSeed2 = RandomInteger[{1,500}]; seed = SeedRandom[nSeed2], seed = SeedRandom[nSeed2]];
+			If[nSeed2==0, nSeed2 = RandomInteger[{1,500}]; seed = SeedRandom[nSeed2], seed = SeedRandom[nSeed2]]; (*randomizza il seed durante la generazione di ogni nuovo esercizio*)
 			
-			Switch[modalita,
+			Switch[modalita,  (*in base alla modalit\[AGrave] sceglie in modo random quante carte scoperte ci sono sul banco*)
 			1,nDiscoveredCards=RandomInteger[{2,4}],
 			2,nDiscoveredCards=3,
 			3,nDiscoveredCards=RandomInteger[{2,3}],

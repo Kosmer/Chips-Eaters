@@ -25,62 +25,54 @@ Begin["`Private`"]
 
 	calcolaProb[carteBanco_,carteGiocatore_,player_Integer,modalita_Integer]:=
 		Module[
-			{probabilita, probabilitastr, carteBancoscoperte, carteScoperteTotali, cartascelta, cartaeffettiva, carteRimanenti, contacoppie, carta1player,   carta2player, indicecartascelta,carteBancocoperte,contacoppietotali,carteScoperteplayer,  i, spiegazione, contacoppiemie},
+			{probabilita, probabilitastr, carteBancoscoperte, carteScoperteTotali, cartascelta, cartaeffettiva, carteRimanenti, contacoppie, indicecartascelta,carteBancocoperte,carteScoperteplayer,  i, spiegazione, contacoppietotali},
 		
-			probabilita=0;
+			probabilita=0; (*probabilit\[AGrave] finale*)
 			probabilitastr = "0";
-			contacoppie=0;
-			contacoppiemie=0;
-			contacoppietotali =0;
-			carteBancoscoperte=Select[carteBanco,#!=0&] ;
-			(*Print[carteBancoscoperte]; giusto*)
-			carteScoperteTotali=Join[carteBancoscoperte,carteGiocatore];
-			carteBancocoperte = 5 - Length[carteBancoscoperte];
-			(*Print[carteScoperteTotali]; giusto*)
-			carta1player=carteGiocatore[1];
-			carta2player=carteGiocatore[2];
+			contacoppie=0;  (*serve per contare se ci sono gia coppie tra la carta scelta e le altre carte scoperte (tra quelle del banco e quelle del giocatore).*)
+			contacoppietotali=0;  (*serve per contare se ci sono gia coppie tra la carta scelta e tutte le altre carte scoperte, comprese quelle degli altri giocatori*)
+			carteBancoscoperte=Select[carteBanco,#!=0&]; (*array che contiene solo le carte scoperte del banco, toglie dall'array carte banco le carte con valore 0*)
+			carteScoperteTotali=Join[carteBancoscoperte,carteGiocatore]; (*la join \[EGrave] una build in che permette di unire due array, usato per creare un array che contiene tutte le carte scoperte*)
+			carteBancocoperte = 5 - Length[carteBancoscoperte]; (*variabile che contiene il numero di carte coperte*)
 			
+			(*questo switch serve per dividere le 4 modalit\[AGrave]*)
 			Switch[modalita,
 			(*1 calcola probabilit\[AGrave] di coppia di una carta random scoperta con la prossima carta,gli altri giocatori hanno carte coperte*)
 			1,
-			indicecartascelta=Random[Integer,{1,Length[carteScoperteTotali]}];
-			(*Print[indicecartascelta]; giusto *)
-			(*da qui in poi cartascelta non ha piu il valore da 1 a cartescoperte ma ha il valore della carta da 1 a 52*)
-			cartascelta=carteScoperteTotali[[indicecartascelta]];
-			cartaeffettiva = Mod[cartascelta,13];
-			cartaeffettiva = ToString[cartaeffettiva];
-			Switch[cartaeffettiva,
+			indicecartascelta=Random[Integer,{1,Length[carteScoperteTotali]}];(*qui si sceglie in maniera random la carte su cui verr\[AGrave] fatta la domanda*)
+			cartascelta=carteScoperteTotali[[indicecartascelta]]; (*da qui in poi cartascelta non ha piu il valore da 1 a cartescoperte ma ha il valore della carta da 1 a 52*)
+			cartaeffettiva = Mod[cartascelta,13]; (*trasformiamo la carta che inizialmente ha un valore da 1 a 52 in un valore da 0 a 13*)
+			cartaeffettiva = ToString[cartaeffettiva]; 
+			Switch[cartaeffettiva, (*nel caso sia una figura sostituiamo il numero alla lettera per poterla poi stampare e rendere pi\[UGrave] comprensibile*)
 			"0", cartaeffettiva = "K",
 			"1", cartaeffettiva = "A",
 			"11", cartaeffettiva = "J",
 			"12", cartaeffettiva = "Q",
 			_, "Errore"];
-						
-												
-			(*Print["Inserisci la probabilit\[AGrave] che si crei una coppia con: ",cartascelta, " estraendo la prossima carta dal mazzo" ]; *)
+															
 			(*verificare se ci sono gia coppie tra banco e giocatore*)
 			For[i=1,i<=Length[carteScoperteTotali],i++,
-			If[Mod[cartascelta,13]==Mod[carteScoperteTotali[[i]],13],contacoppie++;]];
+			If[Mod[cartascelta,13]==Mod[carteScoperteTotali[[i]],13],contacoppie++;]]; (*se ci sono incremento il contatore contacoppie*)
 			
 			carteRimanenti=52-Length[carteScoperteTotali];
-			probabilita = 3/carteRimanenti;
-			probabilitastr = ToString[3]<>"/"<>ToString[carteRimanenti];
-			spiegazione = "
-In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<> probabilitastr <>". Tra mano e banco c'\[EGrave] solo una carta con il numero "<>ToString[cartaeffettiva]<> ".
+			probabilita = 3/carteRimanenti; (*qui si calcola la probabilit\[AGrave] della prima modalit\[AGrave]*)
+			spiegazione = "  
+Questa \[EGrave] la prima modalit\[AGrave].
+Tra mano e banco c'\[EGrave] solo una carta con il numero "<>ToString[cartaeffettiva]<> ".
 Quindi la probabilit\[AGrave] che ne esca un'altra \[EGrave] calcolata come i casi favorevoli su i casi totali.
-La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
+La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>"."; (*inserisco in spiegazione i passaggi per il calcolo della probabilit\[AGrave]*)
 			(*ora calcoliamo la probabilita che esca una coppia,nel caso ci sia gia l'utente se ne deve accorgere e deve dire 1*)
-			If[contacoppie>1,probabilita = 1; probabilitastr = "1";
+			If[contacoppie>1,probabilita = 1; (*se c'\[EGrave] gia una coppia il valore probabilit\[AGrave] \[EGrave] sovrascritto con 1 e anche la spiegazione cambia*)
 			spiegazione = "
-In questo caso, la probabilit\[AGrave] \[EGrave] uguale a "<>probabilitastr<>". Tra mano e banco c'\[EGrave] gi\[AGrave] una coppia di carte con il numero "<>ToString[cartaeffettiva]<> ".
-Quindi la probabilit\[AGrave] \[EGrave] semplicemente 1.
-La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
+Questa \[EGrave] la prima modalit\[AGrave]. 
+Tra mano e banco c'\[EGrave] gi\[AGrave] una coppia di carte con il numero "<>ToString[cartaeffettiva]<> ".
+Quindi la probabilit\[AGrave] \[EGrave] semplicemente 1.";
 			];
 			,
 			
 			(*2 calcola probabilit\[AGrave] di tris di una carta random scoperta con le rimanenti da estrarre,gli altri giocatori hanno carte coperte*)
 			2,
-			indicecartascelta=Random[Integer,{1,Length[carteScoperteTotali]}];
+			indicecartascelta=Random[Integer,{1,Length[carteScoperteTotali]}];(*qui si sceglie in maniera random la carte su cui verr\[AGrave] fatta la domanda*)
 			(*da qui in poi cartascelta non ha piu il valore da 1 a cartescoperte ma ha il valore della carta da 1 a 52*)
 			cartascelta=carteScoperteTotali[[indicecartascelta]];
 			(*Print["Inserisci la probabilit\[AGrave] che si crei un tris con: ",cartascelta, " estraendo le carte rimanenti, per arrivare a 5, dal mazzo" ];*)
@@ -98,17 +90,16 @@ La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
 			carteRimanenti=52-Length[carteScoperteTotali];
 			Switch[carteBancocoperte,
 			1,
-			If[contacoppie == 2, probabilita = 2/carteRimanenti; probabilitastr = ToString[2]<>"/"<>ToString[carteRimanenti];
+			If[contacoppie == 2, probabilita = 2/carteRimanenti;
 			spiegazione = "Spiegazione della risposta.
-In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>probabilitastr<>", cio\[EGrave] 2 sul numero di carte rimanenti.
-La probabilit\[AGrave] finale \[EGrave] "<>probabilitastr<>".";
+In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[probabilita]<>", cio\[EGrave] 2 sul numero di carte rimanenti.
+La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
 			];
 			,
 			2,
 			If[contacoppie == 2, probabilita =  2*((carteRimanenti-2) /carteRimanenti) * (2/(carteRimanenti-1)) + (2/(carteRimanenti*(carteRimanenti-1)));
-			probabilitastr = ToString[Numerator[probabilita]]<> "/"<>ToString[Denominator[probabilita]];
 			spiegazione = "Spiegazione della risposta.
-In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>probabilitastr<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con quel numero esca in una delle due carte ancora coperte.
+In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[probabilita]<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con quel numero esca in una delle due carte ancora coperte.
 Per calcolarla sommiamo la probabilit\[AGrave] che una carta con lo stesso numero della carta scelta esca con la prima carta coperta (P1) alla probabilit\[AGrave] che esca alla seconda (P2).
 P1 e P2 sono uguali. P1 \[EGrave] uguale a "<>ToString[carteRimanenti]<>"(carte rimanenti) - 2 / "<>ToString[carteRimanenti]<>" * 2 /"<>ToString[carteRimanenti]<>" - 1
 A questo dobbiamo sommare il caso in cui il giocatore faccia Poker, quindi 2 / "<>ToString[carteRimanenti]<>" * "<>ToString[carteRimanenti]<>" - 1";
@@ -176,13 +167,13 @@ La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
 			"12", cartaeffettiva = "Q",
 			_, "Errore"];
 			For[i=1,i<=Length[carteBancoscoperte + 2],i++,
-			If[Mod[cartascelta,13]==Mod[carteScoperteTotali[[i]],13],contacoppiemie++;]];
-			For[i=1,i<=Length[carteScoperteTotali],i++,
 			If[Mod[cartascelta,13]==Mod[carteScoperteTotali[[i]],13],contacoppie++;]];
+			For[i=1,i<=Length[carteScoperteTotali],i++,
+			If[Mod[cartascelta,13]==Mod[carteScoperteTotali[[i]],13],contacoppietotali++;]];
 			carteRimanenti=52-Length[carteScoperteTotali];
 			Switch[carteBancocoperte,
 			1,
-			probabilita=(3-(contacoppie - contacoppiemie))/carteRimanenti;
+			probabilita=(3-(contacoppietotali - contacoppie))/carteRimanenti;
 			spiegazione = "Spiegazione della risposta.
 In questo caso, dato che c'\[EGrave] solo una carta coperta sul banco il calcolo della probabilit\[AGrave] non \[EGrave] complesso.
 Si tratta di contare il numero di casi favorevoli su casi totali, l'unica accortezza \[EGrave] nel fatto che devo controllare che i miei avversari non abbiano carte con lo stesso numero della carta scelta.
@@ -190,7 +181,7 @@ In quel caso devo sottrarle a 3 che sarebbe il valore di casi favorevoli inizial
 La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
 			,
 			2,
-			probabilita=2*((carteRimanenti-(3-(contacoppie - contacoppiemie)))*(3-(contacoppie - contacoppiemie)))/(carteRimanenti*(carteRimanenti-1))+ (((3-(contacoppie - contacoppiemie))*(2-(contacoppie - contacoppiemie)))/(carteRimanenti*(carteRimanenti-1)));
+			probabilita=2*((carteRimanenti-(3-(contacoppietotali - contacoppie)))*(3-(contacoppietotali - contacoppie)))/(carteRimanenti*(carteRimanenti-1))+ (((3-(contacoppietotali - contacoppie))*(2-(contacoppietotali - contacoppie)))/(carteRimanenti*(carteRimanenti-1)));
 			spiegazione = "Spiegazione della risposta.
 In questo caso il numero di carte coperte sul banco \[EGrave] 2, pi\[UGrave] il numero di carte coperte aumenta pi\[UGrave] il calcolo diventa complesso.
 Si tratta di calcolare la probabilit\[AGrave] che la carta scelta esca in una delle due carte coperte rimanenti.
@@ -204,10 +195,10 @@ La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
 			_,Print["ci sono piu di 2 carte da estrarre"]; probabilita =0;
 			spiegazione = "Spiegazione della risposta.Controllare errore.";];
 			(*ora calcoliamo la probabilita che esca una coppia,nel caso ci sia gia l'utente se ne deve accorgere e deve dire 1*)
-			 If[contacoppiemie>1,probabilita = 1;
+			 If[contacoppie>1,probabilita = 1;
 			 spiegazione = "Spiegazione della risposta.La probabilit\[AGrave] \[EGrave] 1, c'\[EGrave] gia presente una coppia sul banco.
 La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
-			 If[contacoppiemie - contacoppie >2,probabilita = 0;
+			 If[contacoppietotali - contacoppie >2,probabilita = 0;
 			 spiegazione = "Spiegazione della risposta.La probabilit\[AGrave] \[EGrave] 0, non \[EGrave] possibile fare una coppia con la carta scelta.
 La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
 			,
@@ -267,9 +258,9 @@ La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";
 La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
 			,
 			_,
-			Print["modalita ancora da implementare"];probabilita =0;
+			Print["modalita ancora da implementare"];probabilita =0; (*non sono presenti altrem modalit\[AGrave] oltre alla 4*)
 			];
-			Return[{probabilita, cartascelta, spiegazione}];
+			Return[{probabilita, cartascelta, spiegazione}]; (*ritorniamo tre valori, la probabilit\[AGrave] in cui c'\[EGrave] il valore della probabilit\[AGrave] calcolata, cartascelta \[EGrave] la carta su cui \[EGrave] fatta la domanda; e spiegazione in cui c'\[EGrave] la spiegazione della risposta*)
 	]
 End[]
 EndPackage[]
