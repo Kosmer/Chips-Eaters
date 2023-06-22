@@ -43,7 +43,7 @@ Begin["`Private`"]
 				6,If[userAnswear<=correctAnswear+1&&userAnswear>=correctAnswear-1,guessed="Giusto!"],
 				_,"Errore, modalit\[AGrave] non esistente"];
 				
-			Return[guessed];
+			Return[guessed]; (*Ritorniamo guessed che \[EGrave] una stringa che pu\[OGrave] essere solo giusto o sbagliato*)
 		];
 
 End[]

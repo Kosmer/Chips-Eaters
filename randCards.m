@@ -42,12 +42,14 @@ Begin["`Private`"]
 			mani=Table[0,{nPlayers*2}];
 			nDiscovered=1;
 			nPlayer=1;
-			(*Crea le carte scoperte a seconda di nDiscoveredCards*)While[nDiscovered-1<nDiscoveredCards,banco[[nDiscovered]]=RandomInteger[{1,52}];
+			(*Crea le carte scoperte a seconda di nDiscoveredCards*)
+			While[nDiscovered-1<nDiscoveredCards,banco[[nDiscovered]]=RandomInteger[{1,52}];
 			While[MemberQ[ArrayCheck,banco[[nDiscovered]]],banco[[nDiscovered]]=RandomInteger[{1,52}]];
 				ArrayCheck=Append[ArrayCheck,banco[[nDiscovered]]];
 				nDiscovered+=1;
 			];
-			(*Crea le mani dei giocatori a seconda di nPlayers*)While[nPlayer-1<nPlayers*2,mani[[nPlayer]]=RandomInteger[{1,52}];
+			(*Crea le mani dei giocatori a seconda di nPlayers*)
+			While[nPlayer-1<nPlayers*2,mani[[nPlayer]]=RandomInteger[{1,52}];
 			While[MemberQ[ArrayCheck,mani[[nPlayer]]],mani[[nPlayer]]=RandomInteger[{1,52}]];
 				ArrayCheck=Append[ArrayCheck,mani[[nPlayer]]];nPlayer+=1;
 				mani[[nPlayer]]=RandomInteger[{1,52}
