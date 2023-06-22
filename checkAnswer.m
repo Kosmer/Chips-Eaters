@@ -28,11 +28,12 @@ Begin["`Private`"]
 		
 			(*se la modalit\[AGrave] precede le frazioni,le semplifico a priori*)
 			If[mode==1,
-				uAns=Simplify[userAnswear]; (*serve per semplificare l'espressione che \[EGrave] in answear, per confrontarlo con la risposta corretta dato che come risposta si accetta anche la formula completa *)
-				cAns=Simplify[correctAnswear];
+				uAns=Simplify[userAnswear]; (*semplifica l'espressione indicata nella risposta dell'utente*)
+				cAns=Simplify[correctAnswear]; (*semplifica l'espressione indicata nella risposta corretta. Verranno successivamente confrontate*)
 			];
 			
 			guessed="Sbagliato!";
+			
 			(*qui vengono fatti i controlli per capire se la risposta fornita dall'utente \[EGrave] esatta*)
 			Switch[mode,
 				1,If[userAnswear==correctAnswear,guessed="Giusto!"],
@@ -43,7 +44,7 @@ Begin["`Private`"]
 				6,If[userAnswear<=correctAnswear+1&&userAnswear>=correctAnswear-1,guessed="Giusto!"],
 				_,"Errore, modalit\[AGrave] non esistente"];
 				
-			Return[guessed]; (*Ritorniamo guessed che \[EGrave] una stringa che pu\[OGrave] essere solo giusto o sbagliato*)
+			Return[guessed]; (*Ritorniamo guessed che \[EGrave] una stringa che indica se giusto o sbagliato*)
 		];
 
 End[]
