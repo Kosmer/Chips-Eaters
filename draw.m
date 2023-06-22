@@ -30,7 +30,7 @@ createAll, ovvero ritorna tutta l'interfaccia utente."
 
 Begin["`Private`"]
 
-createAll[modalita_Integer, seed_Integer]:=Module[{},
+createAll[modalita_Integer, seed_Integer]:=Module[{player, carteBanco, carteGiocatore, nSeed, outputavversari, outputbanco, outputgiocatore, correctprob, requestcard,spiegazione, effectivecard},
 SetDirectory[NotebookDirectory[]];
 Get["randCards.m"];
 Get["calcolaProb.m"];
