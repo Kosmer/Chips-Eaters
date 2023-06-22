@@ -113,7 +113,7 @@ drawAll[modalita_Integer]:=
 	Row[{
 	(* Creazione del form per caricare un seed noto, per poter far rifare all'utente esercizi passati*)
 	"Seed Esercizio: ", Dynamic[nSeed2], "   ",
-	InputField[Dynamic[seedtext],String, ImageSize -> {100, 20}],
+	InputField[Dynamic[seedtext],String, ImageSize -> {100, 33}]," ",
 	Button["Carica Seed",
 	If[IntegerQ[ToExpression[seedtext]]==True,
 	seed = ToExpression[seedtext];
@@ -146,7 +146,7 @@ drawAll[modalita_Integer]:=
 	
 	Row[{
 	(* Creo il form per inserire il risultato e il bottone per verificarlo *)
-	InputField[Dynamic[text],String, ImageSize -> {100, 20}]," ", Button["Verifica Risultato",answer=ToExpression[text];
+	InputField[Dynamic[text],String, ImageSize -> {100, 33}]," ", Button["Verifica Risultato",answer=ToExpression[text];
 	
 	(* Richiamo checkAnswer per verificare la correttezza del risultato inserito, e successivamente lo stampo*)
 	result=checkAnswer`checkAnswer[answer,rightp,modalita];]," "}],
