@@ -135,7 +135,7 @@ Begin["`Private`"]
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					];
 					,
-				3,(*3 carte coperte sul banco, 1 coppia gia sul banco;*)
+				3,
 					If[contacoppie == 2, probabilita = 3*(2*(carteRimanenti-3)/(carteRimanenti*(carteRimanenti-1)))+ 3*(2/(carteRimanenti*(carteRimanenti-1)));
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
@@ -167,12 +167,14 @@ Begin["`Private`"]
 				];
 				
 				
-				(*controllo finale nel caso non sia possibile fare un tris o sia gia sul banco*)
+				(* Controllo se c'\[EGrave] gi\[AGrave] un tris*)
 				If[contacoppie  >3,probabilita = 1;
 				spiegazione = "
 	La probabilit\[AGrave] \[EGrave] 1. C'\[EGrave] gia un tris con la carta scelta sul banco.
 	La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
-				If[contacoppie + carteBancocoperte<3,probabilita = 0; (*Print["coppie + carte min 2"];*)
+	
+				(* Controllo se non \[EGrave] possibile fare un tris*)
+				If[contacoppie + carteBancocoperte<3,probabilita = 0; 
 				spiegazione = "
 	La probabilit\[AGrave] \[EGrave] 0. Non \[EGrave] possibilie fare un tris dato che non abbiamo abbastanza carte coperte.
 	La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
@@ -233,10 +235,13 @@ Begin["`Private`"]
 					(*troppo complicato da calcolare a mente, non si prevede un caso in cui ci sono 4 carte da estrarre*)
 					_,Print["ci sono piu di 2 carte da estrarre"]; probabilita =0;
 					spiegazione = "Controllare errore.";];
-					(*ora calcoliamo la probabilita che esca una coppia,nel caso ci sia gia l'utente se ne deve accorgere e deve dire 1*)
+					
+					(*Controllo se c'\[EGrave] gi\[AGrave] una coppia tra le carte scoperte*)
 					 If[contacoppie>1,probabilita = 1;
 					 spiegazione = "La probabilit\[AGrave] \[EGrave] 1, c'\[EGrave] gia presente una coppia sul banco.
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
+		
+					(*Controllo se non \[EGrave] possibile far uscire una coppia*)
 					 If[contacoppietotali - contacoppie >2,probabilita = 0;
 					 spiegazione = "La probabilit\[AGrave] \[EGrave] 0, non \[EGrave] possibile fare una coppia con la carta scelta.
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[probabilita]<>".";];
