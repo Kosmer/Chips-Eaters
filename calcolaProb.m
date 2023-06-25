@@ -107,6 +107,7 @@ Begin["`Private`"]
 				(* Switch per analizzare le varie casistiche della modalit\[AGrave], in base al numero di carte coperte del banco*)
 				Switch[carteBancocoperte,
 				1,
+					(*Controllo se c'\[EGrave] gi\[AGrave] una coppia tra le carte scoperte*)
 					If[contacoppie == 2, probabilita = 2/carteRimanenti;
 					numeratore = Numerator[probabilita];
 					numeratore = Denominator[probabilita];
@@ -115,6 +116,7 @@ Begin["`Private`"]
 					];
 					,
 				2,
+					(*Controllo se c'\[EGrave] gi\[AGrave] una coppia tra le carte scoperte*)
 					If[contacoppie == 2, probabilita =  2*((carteRimanenti-2) /carteRimanenti) * (2/(carteRimanenti-1)) + (2/(carteRimanenti*(carteRimanenti-1)));
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
@@ -124,6 +126,8 @@ Begin["`Private`"]
 		P1 e P2 sono uguali. P1 \[EGrave] uguale a (("<>ToString[carteRimanenti]<>"(carte rimanenti) - 2) / "<>ToString[carteRimanenti]<>") * (2 / ("<>ToString[carteRimanenti]<>" - 1))
 		A questo dobbiamo sommare il caso in cui il giocatore faccia Poker, quindi (2 / ("<>ToString[carteRimanenti]<>" * ("<>ToString[carteRimanenti]<>" - 1)))";
 					];
+					
+					(*Controllo se \[EGrave] il caso in cui non c'\[EGrave] una coppia tra le carte scoperte*)
 					If[contacoppie == 1, probabilita = ((3/carteRimanenti) *  (2/(carteRimanenti-1)));
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
@@ -135,6 +139,7 @@ Begin["`Private`"]
 					];
 					,
 				3,
+					(*Controllo se c'\[EGrave] gi\[AGrave] una coppia tra le carte scoperte*)
 					If[contacoppie == 2, probabilita = 3*(2*(carteRimanenti-3)/(carteRimanenti*(carteRimanenti-1)))+ 3*(2/(carteRimanenti*(carteRimanenti-1)));
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
@@ -147,6 +152,8 @@ Begin["`Private`"]
 		Questa probabilit\[AGrave] \[EGrave] 3 * (le combinazioni) 2 / (carte rimanenti * carte rimanenti -1).
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					];
+					
+					(*Controllo se \[EGrave] il caso in cui non c'\[EGrave] una coppia tra le carte scoperte*)
 					If[contacoppie == 1, probabilita =  3*(3* 2* (carteRimanenti -3)/(carteRimanenti*(carteRimanenti-1)*(carteRimanenti-2)))+ (3*2/(carteRimanenti*(carteRimanenti-1)*(carteRimanenti-2)));
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
