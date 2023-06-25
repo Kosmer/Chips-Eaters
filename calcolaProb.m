@@ -111,8 +111,7 @@ Begin["`Private`"]
 					numeratore = Numerator[probabilita];
 					numeratore = Denominator[probabilita];
 					spiegazione = "
-		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]", cio\[EGrave] 2 sul numero di carte rimanenti.
-		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
+		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]", cio\[EGrave] 2 sul numero di carte rimanenti.";
 					];
 					,
 				2,
@@ -122,16 +121,16 @@ Begin["`Private`"]
 					spiegazione = "
 		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con quel numero esca in una delle due carte ancora coperte.
 		Per calcolarla sommiamo la probabilit\[AGrave] che una carta con lo stesso numero della carta scelta esca con la prima carta coperta (P1) alla probabilit\[AGrave] che esca alla seconda (P2).
-		P1 e P2 sono uguali. P1 \[EGrave] uguale a "<>ToString[carteRimanenti]<>"(carte rimanenti) - 2 / "<>ToString[carteRimanenti]<>" * 2 /"<>ToString[carteRimanenti]<>" - 1
-		A questo dobbiamo sommare il caso in cui il giocatore faccia Poker, quindi 2 / "<>ToString[carteRimanenti]<>" * "<>ToString[carteRimanenti]<>" - 1";
+		P1 e P2 sono uguali. P1 \[EGrave] uguale a (("<>ToString[carteRimanenti]<>"(carte rimanenti) - 2) / "<>ToString[carteRimanenti]<>") * (2 / ("<>ToString[carteRimanenti]<>" - 1))
+		A questo dobbiamo sommare il caso in cui il giocatore faccia Poker, quindi (2 / ("<>ToString[carteRimanenti]<>" * ("<>ToString[carteRimanenti]<>" - 1)))";
 					];
 					If[contacoppie == 1, probabilita = ((3/carteRimanenti) *  (2/(carteRimanenti-1)));
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
 					spiegazione = "
-		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco non c'\[EGrave] nessuna coppia con la carta scelta, quindi per fare tris Devono uscire carte del numero della carta scelta entrambe le volte.
-		La probabilit\[AGrave] \[EGrave] quindi 3/"<>ToString[carteRimanenti]<>"* 2/"<>ToString[carteRimanenti-1]<>". 3 e 2 sono il numero di casi favorevoli.
-		2 dato che dopo che esce il primo il numero di casi favorevoli diminuisce di uno.
+		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco non c'\[EGrave] nessuna coppia con la carta scelta, quindi per fare tris devono uscire carte del numero della carta scelta in entrambe le carte coperte.
+		La probabilit\[AGrave] \[EGrave] quindi 3/"<>ToString[carteRimanenti]<>" * 2/"<>ToString[carteRimanenti-1]<>".
+		3 e 2 sono il numero di casi favorevoli. Prima i casi favorevoli sono 3, e dopo l'estrazione della prima carta diventano 2.
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					];
 					,
@@ -142,11 +141,10 @@ Begin["`Private`"]
 					spiegazione = "
 		In questo caso il calcolo della probabilit\[AGrave] diventa pi\[UGrave] complicato. Il numero di carte scoperte \[EGrave] 3 e \[EGrave] gia presente sul banco una coppia con la carta scelta.
 		Lo scopo \[EGrave] calcolare la possibilit\[AGrave] che un "<>ToString[cartaeffettiva]<>" esca in una tra le tre carte coperte del banco.
-		Si tratta di sommare le 3 possibilit\[AGrave]: nel caso in cui esca nella prima, nella seconda e nella terza. Le tre probabilit\[AGrave] sono uguali
-		La probabilit\[AGrave] \[EGrave] "<>ToString[carteRimanenti-3]<>"/"<>ToString[carteRimanenti]<>"*"<>ToString[carteRimanenti-2]<>"/"<>ToString[carteRimanenti-1]<>"*2/"<>ToString[carteRimanenti-2]<>".
-		La formula si puo' semplificare togliendo carte rimanenti -2.
+		Si tratta di sommare le 3 possibilit\[AGrave]: il caso in cui esca nella prima, nella seconda e nella terza. Le tre probabilit\[AGrave] sono uguali
+		La probabilit\[AGrave] \[EGrave] ("<>ToString[carteRimanenti-3]<>"/"<>ToString[carteRimanenti]<>")*("<>ToString[carteRimanenti-2]<>"/"<>ToString[carteRimanenti-1]<>") * (2/"<>ToString[carteRimanenti-2]<>").
 		A questo va sommata la probabilit\[AGrave] di fare Poker che \[EGrave] la probabilit\[AGrave] che escano due carte su tre con il valore della carta scelta.
-		Questa probabilit\[AGrave] \[EGrave] 3* (le combinazioni) 2 / (carte rimanenti * carte rimanenti -1).
+		Questa probabilit\[AGrave] \[EGrave] 3 * (le combinazioni) 2 / (carte rimanenti * carte rimanenti -1).
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					];
 					If[contacoppie == 1, probabilita =  3*(3* 2* (carteRimanenti -3)/(carteRimanenti*(carteRimanenti-1)*(carteRimanenti-2)))+ (3*2/(carteRimanenti*(carteRimanenti-1)*(carteRimanenti-2)));
@@ -226,10 +224,10 @@ Begin["`Private`"]
 					spiegazione = "
 		In questo caso il numero di carte coperte sul banco \[EGrave] 2, pi\[UGrave] il numero di carte coperte aumenta pi\[UGrave] il calcolo diventa complesso.
 		Si tratta di calcolare la probabilit\[AGrave] che la carta scelta esca in una delle due carte coperte rimanenti.
-		Possiamo dividere il calcolo della probabilit\[AGrave] in due parte. Che esca o nella prima corta o nella seconda e il caso in cui esca entrambe le volte.
+		Possiamo dividere il calcolo della probabilit\[AGrave] in due parti: che la carta scelta esca o nella prima carta o nella seconda e il caso in cui esca entrambe le volte.
 		Per i casi favorevoli bisogna controllare che gli altri giocatori non abbiano una carta dello stesso numero della carta scelta, in quel caso il numero di casi favorevoli scende.
-		La probabilit\[AGrave] \[EGrave] quindi binomiale di 2 (dato che le carte coperte sono 2) * casi favorevoli per casi non favorevoli diviso carte rimanenti per carte rimanenti -1. 
-		A questo va sommata la probabilit\[AGrave] che esca la carta scelta entrambe le volte che \[EGrave] carte favorevoli per carte favorevoli -1 diviso diviso carte totali * carte cotali -1.
+		La probabilit\[AGrave] \[EGrave] quindi binomiale di 2 (dato che le carte coperte sono 2) * casi favorevoli * casi non favorevoli / (carte rimanenti * (carte rimanenti -1)). 
+		A questo va sommata la probabilit\[AGrave] che esca la carta scelta entrambe le volte che \[EGrave]: (carte favorevoli * (carte favorevoli -1)) / (carte totali * (carte cotali -1)).
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					,
 					(*troppo complicato da calcolare a mente, non si prevede un caso in cui ci sono 4 carte da estrarre*)
@@ -289,10 +287,10 @@ Begin["`Private`"]
 					denominatore = Denominator[probabilita];
 					spiegazione = "
 		Il numero di carte coperte \[EGrave] 2. Quindi il calcolo della probabilit\[AGrave] consiste nel calcolare la possibilit\[AGrave] che la carta scelta esca o nella prima o nella seconda carta coperta che rimane.
-		La probabilit\[AGrave] che esca la carta scelta nella prima carta \[EGrave] 3 / carte rimanenti * la probabilit\[AGrave] che non esca nella seconda, carte rimanenti - 3 / carte rimanenti - 1.
-		La probabilit\[AGrave] che esca la carta scelta nella seconda carta \[EGrave] carte rimanenti - 3 / carte rimanenti * 3 / carterimanenti -1.
+		La probabilit\[AGrave] che esca la carta scelta nella prima carta \[EGrave] (3 / carte rimanenti) * la probabilit\[AGrave] che non esca nella seconda, ((carte rimanenti - 3) / (carte rimanenti - 1)).
+		La probabilit\[AGrave] che esca la carta scelta nella seconda carta \[EGrave] (((carte rimanenti - 3) /( carte rimanenti)) * (3 / (carte rimanenti -1))).
 		Come si puo' notare le due probabilit\[AGrave] sono uguali.
-		A questo va sommata la probabilit\[AGrave] che il numero della carta scelta esca sia nella prima carta coperta che nella seconda; che \[EGrave] 3 * 2 / carte rimanenti * carte rimanenti -1.
+		A questo va sommata la probabilit\[AGrave] che il numero della carta scelta esca sia nella prima carta coperta che nella seconda; che \[EGrave] ((3 * 2) / (carte rimanenti * (carte rimanenti -1))).
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					,
 				3,
@@ -300,10 +298,10 @@ Begin["`Private`"]
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
 					spiegazione = "
-		Il numero di carte coperte \[EGrave] 2. Quindi il calcolo della probabilit\[AGrave] consiste nel calcolare la possibilit\[AGrave] che la carta scelta esca o nella prima o nella seconda o nella terza carta coperta che rimane.
-		La probabilit\[AGrave] che esca la carta scelta una sola volta \[EGrave] 3* la probabilit\[AGrave] che esca in ciascuno spot dei 3 coperti, cio\[EGrave]: 3 / carte rimanenti *  carte rimanenti - 3 / carte rimanenti - 1 *  carte rimanenti - 4 / carte rimanenti - 2.
-		A questo va sommata la probabilit\[AGrave] che escano due carte con lo stesso valore della carta scelta, la probabilit\[AGrave] \[EGrave] 3 * carterimanenti -3 * 3 * 2 / (carte rimanenti * carte rimanenti -1 * carte rimanenti -2). 
-		Per finire va sommata la probabilit\[AGrave] che il numero della carta scelta esca 3 volte; che \[EGrave] 3 * 2 / carte rimanenti * carte rimanenti -1 * carte rimanenti -2.
+		Il numero di carte coperte \[EGrave] 3. Quindi il calcolo della probabilit\[AGrave] consiste nel calcolare la possibilit\[AGrave] che la carta scelta esca o nella prima o nella seconda o nella terza carta coperta che rimane.
+		La probabilit\[AGrave] che esca la carta scelta una sola volta \[EGrave] 3 * la probabilit\[AGrave] che esca in ciascuno spot dei 3 coperti, cio\[EGrave]: ((3 / carte rimanenti) *  ((carte rimanenti - 3) / (carte rimanenti - 1)) *  ((carte rimanenti - 4) / (carte rimanenti - 2))).
+		A questo va sommata la probabilit\[AGrave] che escano due carte con lo stesso valore della carta scelta, la probabilit\[AGrave] \[EGrave] 3 * (carterimanenti -3) * 3 * 2 / (carte rimanenti * (carte rimanenti -1) * (carte rimanenti -2)). 
+		Per finire va sommata la probabilit\[AGrave] che il numero della carta scelta esca 3 volte; che \[EGrave] ((3 * 2) / (carte rimanenti * (carte rimanenti -1) * (carte rimanenti -2))).
 		La probabilit\[AGrave] finale \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>".";
 					,
 					

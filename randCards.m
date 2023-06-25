@@ -36,7 +36,7 @@ Begin["`Private`"]
 			(*in base alla modalit\[AGrave] sceglie in modo random quante carte scoperte ci sono sul banco*)
 			Switch[modalita,  
 			1,nDiscoveredCards=RandomInteger[{2,4}],
-			2,nDiscoveredCards=3,
+			2,nDiscoveredCards=RandomInteger[{2,4}],
 			3,nDiscoveredCards=RandomInteger[{2,3}],
 			4,nDiscoveredCards=3,
 			5,nDiscoveredCards = 4,
