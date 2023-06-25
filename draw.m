@@ -94,20 +94,20 @@ drawAll[modalita_Integer]:=
 	(*Genero una domanda iniziale in base alla modalit\[AGrave] scelta *)
 	Switch[modalita2,
 	1,richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo la prossima carta dal mazzo?",
-	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
-	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo?",
+	2, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare un tris di " <>cardreq<> " estraendo le carte rimanenti dal mazzo?",
+	3, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le carte rimanenti dal mazzo?",
 	4, richiesta ="Qual \[EGrave] la probabilit\[AGrave] di fare una coppia di " <>cardreq<> " estraendo le prossime 2 carte dal mazzo considerando anche le carte degli avversari?",
 	_, "Errore"];
 	
 	(*Creo la mia variabile "esercizio" con tutti gli elementi utili associati all'esercizio*)
 	esercizio = Column[{
 	(*Tendina per la scelta della modalit\[AGrave]*)
-	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" }],
+	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Impossibile" }],
 	Dynamic[Pane[Switch[scelta,
 	"Modalit\[AGrave] 1: Semplice",selezione="Hai selezionato la modalit\[AGrave] 1."; modalita2 =1 ; ,
 	"Modalit\[AGrave] 2: Intermedio",selezione="Hai selezionato la modalit\[AGrave] 2.";modalita2 =2; ,
 	"Modalit\[AGrave] 3: Difficile",selezione="Hai selezionato la modalit\[AGrave] 3.";modalita2=3 ; ,
-	"Modalit\[AGrave] 4: Wow mbare sei tutto pazzo" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
+	"Modalit\[AGrave] 4: Impossibile" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
 	]],
 	
 	Row[{
