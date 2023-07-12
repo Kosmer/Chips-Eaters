@@ -34,15 +34,8 @@ Begin["`Private`"]
 			
 			guessed="Sbagliato!";
 			
-			(*qui vengono fatti i controlli per capire se la risposta fornita dall'utente \[EGrave] esatta*)
-			Switch[mode,
-				1,If[userAnswear==correctAnswear,guessed="Giusto!"],
-				2,If[userAnswear==correctAnswear,guessed="Giusto!"],
-				3,If[userAnswear<=correctAnswear+4&&userAnswear>=correctAnswear-4,guessed="Giusto!"],
-				4,If[userAnswear<=correctAnswear+3&&userAnswear>=correctAnswear-3,guessed="Giusto!"],
-				5,If[userAnswear<=correctAnswear+2&&userAnswear>=correctAnswear-2,guessed="Giusto!"],
-				6,If[userAnswear<=correctAnswear+1&&userAnswear>=correctAnswear-1,guessed="Giusto!"],
-				_,"Errore, modalit\[AGrave] non esistente"];
+			(* Controllo se la risposta fornita dall'utente \[EGrave] esatta*)
+			If[userAnswear==correctAnswear,guessed="Giusto!"];
 				
 			Return[guessed]; (*Ritorniamo guessed che \[EGrave] una stringa che indica se giusto o sbagliato*)
 		];

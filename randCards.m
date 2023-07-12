@@ -25,7 +25,9 @@ Begin["`Private`"]
 	
 	randomCards[modalita_Integer, nPlayers_Integer, nSeed_Integer]:=
 		Module[
-			{banco,mani,p,b,ArrayCheck,nPlayer,nDiscovered, n, seed, nSeed2, nDiscoveredCards},ArrayCheck={};
+			{banco,mani,p,b,ArrayCheck,nPlayer,nDiscovered, n, seed, nSeed2, nDiscoveredCards},
+			(* Array che conterr\[AGrave] tutte le carte gia utilizzate e che non possono essere ripescate *)
+			ArrayCheck={};
 			
 			(*assegno il seed alla nostra variabile locale. Se abbiamo indicato un seed, prender\[AGrave] quello, altrimenti sar\[AGrave] 0*)
 			nSeed2 = nSeed;
@@ -44,8 +46,9 @@ Begin["`Private`"]
 			
 			banco=Table[0,{5}];
 			mani=Table[0,{nPlayers*2}];
-			nDiscovered=1;
-			nPlayer=1;
+			
+			nDiscovered=1; (* Contatore carte da scoprire*)
+			nPlayer=1; (* Contatore mani giocatori da creare*)
 			
 			(*Crea le carte scoperte a seconda di nDiscoveredCards (ovvero il numero di carte scoperte) *)
 			While[nDiscovered-1<nDiscoveredCards,banco[[nDiscovered]]=RandomInteger[{1,52}];

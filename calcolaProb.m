@@ -43,7 +43,7 @@ Begin["`Private`"]
 			(*Switch per dividere le 4 modalit\[AGrave]*)
 			Switch[modalita,
 			
-			(*MODALITA 1: calcola probabilit\[AGrave] di coppia di una carta random scoperta con la prossima carta,gli altri giocatori hanno carte coperte*)
+			(*MODALITA 1: calcola probabilit\[AGrave] di coppia di una carta random scoperta con la prossima carta, gli altri giocatori hanno carte coperte*)
 			1,
 				indicecartascelta=Random[Integer,{1,Length[carteScoperteTotali]}];   (*scelgo randomicamente la carte su cui verr\[AGrave] fatta la domanda e memorizzo l'indice *)
 				cartascelta=carteScoperteTotali[[indicecartascelta]];   (*Assegno la carta scelta in base all'indice*)
@@ -82,7 +82,7 @@ Begin["`Private`"]
 				,
 			
 			
-			(*MODALITA 2: calcola probabilit\[AGrave] di tris di una carta random scoperta con le rimanenti da estrarre,gli altri giocatori hanno carte coperte*)
+			(*MODALITA 2: calcola probabilit\[AGrave] di tris di una carta random scoperta con le rimanenti da estrarre, gli altri giocatori hanno carte coperte*)
 			2,
 				indicecartascelta=Random[Integer,{1,Length[carteScoperteTotali]}];  (*scelgo randomicamente la carte su cui verr\[AGrave] fatta la domanda e memorizzo l'indice *)
 				cartascelta=carteScoperteTotali[[indicecartascelta]];                  (*Assegno la carta scelta in base all'indice*)

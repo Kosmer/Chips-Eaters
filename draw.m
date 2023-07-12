@@ -146,7 +146,7 @@ drawAll[modalita_Integer]:=
 	
 	Row[{
 	(* Creo il form per inserire il risultato e il bottone per verificarlo *)
-	InputField[Dynamic[text],String, ImageSize -> {100, 33}]," ", Button["Verifica Risultato",answer=ToExpression[text];
+	InputField[Dynamic[text],String, ImageSize -> {120, 33}]," ", Button["Verifica Risultato",answer=ToExpression[text];
 	
 	(* Richiamo checkAnswer per verificare la correttezza del risultato inserito, e successivamente lo stampo*)
 	result=checkAnswer`checkAnswer[answer,rightp,modalita];]," "}],
