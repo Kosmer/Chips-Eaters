@@ -102,12 +102,12 @@ drawAll[modalita_Integer]:=
 	(*Creo la mia variabile "esercizio" con tutti gli elementi utili associati all'esercizio*)
 	esercizio = Column[{
 	(*Tendina per la scelta della modalit\[AGrave]*)
-	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Impossibile" }],
+	"Seleziona la modalit\[AGrave]:",PopupMenu[Dynamic[scelta],{"Modalit\[AGrave] 1: Semplice","Modalit\[AGrave] 2: Intermedio","Modalit\[AGrave] 3: Difficile", "Modalit\[AGrave] 4: Molto Difficile" }],
 	Dynamic[Pane[Switch[scelta,
 	"Modalit\[AGrave] 1: Semplice",selezione="Hai selezionato la modalit\[AGrave] 1."; modalita2 =1 ; ,
 	"Modalit\[AGrave] 2: Intermedio",selezione="Hai selezionato la modalit\[AGrave] 2.";modalita2 =2; ,
 	"Modalit\[AGrave] 3: Difficile",selezione="Hai selezionato la modalit\[AGrave] 3.";modalita2=3 ; ,
-	"Modalit\[AGrave] 4: Impossibile" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
+	"Modalit\[AGrave] 4: Molto Difficile" ,selezione="Hai selezionato la modalit\[AGrave] 4."; modalita2 =4; ]
 	]],
 	
 	Row[{
