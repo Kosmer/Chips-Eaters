@@ -110,9 +110,9 @@ Begin["`Private`"]
 					(*Controllo se c'\[EGrave] gi\[AGrave] una coppia tra le carte scoperte*)
 					If[contacoppie == 2, probabilita = 2/carteRimanenti;
 					numeratore = Numerator[probabilita];
-					numeratore = Denominator[probabilita];
+					denominatore = Denominator[probabilita];
 					spiegazione = "
-		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]", cio\[EGrave] 2 sul numero di carte rimanenti.";
+		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la \n\t\tcarta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>", cio\[EGrave] 2 sul numero di carte rimanenti.";
 					];
 					,
 				2,
