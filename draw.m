@@ -175,7 +175,7 @@ drawAll[modalita_Integer]:=
 	], 
 	
 	(* Creo il bottone per la spiegazione *)
-	Button["Spiegazione",spiegazione2=spiegazione, ImageSize -> {200, 25}],Dynamic[spiegazione2] 
+	Button["Spiegazione",spiegazione2=spiegazione, ImageSize -> {200, 25}], Dynamic[spiegazione2] 
 	}, ItemSize -> {60, Automatic}, Alignment -> Center];
 	
 	(* Infine, stampo l'esercizio *)
