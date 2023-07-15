@@ -121,9 +121,9 @@ Begin["`Private`"]
 					numeratore = Numerator[probabilita];
 					denominatore = Denominator[probabilita];
 					spiegazione = "
-		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con la carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con quel numero esca in una delle due carte ancora coperte.
-		Per calcolarla sommiamo la probabilit\[AGrave] che una carta con lo stesso numero della carta scelta esca con la prima carta coperta (P1) alla probabilit\[AGrave] che esca alla seconda (P2).
-		P1 e P2 sono uguali. P1 \[EGrave] uguale a (("<>ToString[carteRimanenti]<>"(carte rimanenti) - 2) / "<>ToString[carteRimanenti]<>") * (2 / ("<>ToString[carteRimanenti]<>" - 1))
+		In questo caso le carte coperte sul banco sono "<>ToString[carteBancocoperte]<>". Sul banco c'\[EGrave] gia una coppia con \n\t\tla carta scelta, quindi la probabilit\[AGrave] \[EGrave] "<>ToString[numeratore]<>"/"<>ToString[denominatore]<>", cio\[EGrave] \[EGrave] la probabilit\[AGrave] che una carta con \n\t\tquel numero esca in una delle due carte ancora coperte.
+		Per calcolarla sommiamo la probabilit\[AGrave] che una carta con lo stesso numero della carta \n\t\tscelta esca con la prima carta coperta (P1) alla probabilit\[AGrave] che esca alla seconda (P2).
+		P1 e P2 sono uguali. P1 \[EGrave] uguale a (("<>ToString[carteRimanenti]<>"(carte rimanenti) - 2) / "<>ToString[carteRimanenti]<>") * (2 / ("<>ToString[carteRimanenti]<>" - 1)).
 		A questo dobbiamo sommare il caso in cui il giocatore faccia Poker, quindi (2 / ("<>ToString[carteRimanenti]<>" * ("<>ToString[carteRimanenti]<>" - 1)))";
 					];
 					
