@@ -153,7 +153,7 @@ drawAll[modalita_Integer]:=
 	Dynamic@Row[{result}],
 	
 	(* Creo il bottone per pulire l'esercizio *)
-	Button["Pulisci esercizio", text = ""; result="",ImageSize -> {200, 25}], 
+	Button["Pulisci esercizio", text = ""; spiegazione2="";result="",ImageSize -> {200, 25}], 
 	
 	(* Creo il bottone per generare un nuovo esercizio. Al suo interno setto di nuovo i vari valori utili per la generazione dell'esercizio *) 
 	Button["Nuovo esercizio",
