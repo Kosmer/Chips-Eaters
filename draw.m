@@ -28,12 +28,14 @@ drawAll::usage = "drawAll[modalita], dove modalita \[EGrave] la modalit\[AGrave]
 createAll, ovvero ritorna tutta l'interfaccia utente."
 
 
-Begin["`Private`"]
-
-createAll[modalita_Integer, seed_Integer]:=Module[{player, carteBanco, carteGiocatore, nSeed, outputavversari, outputbanco, outputgiocatore, correctprob, requestcard,spiegazione, effectivecard},
 SetDirectory[NotebookDirectory[]];
 Get["randCards.m"];
 Get["calcolaProb.m"];
+Begin["`Private`"]
+
+
+createAll[modalita_Integer, seed_Integer]:=Module[{player, carteBanco, carteGiocatore, nSeed, outputavversari, outputbanco, outputgiocatore, correctprob, requestcard,spiegazione, effectivecard},
+
 
 (* assegno il numero di player in base alla modalit\[AGrave] indicata *)
 Switch[modalita,
